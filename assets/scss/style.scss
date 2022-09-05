@@ -1,0 +1,80 @@
+@import "vars"; /* Reset picnic vars, set our own */
+@import "../picnic/src/picnic";
+// Code highlighting from pandoc
+@import "highlight";
+
+@import "layout";
+@import "colortweaks";
+@import "nav-overrides";
+
+@import "code";
+@import "hgroup";
+@import "utils";
+
+h1.title {
+    border-bottom: 3px solid $picnic-black;
+}
+
+// The top heading appears as the page title as well.
+article > h2, article > h1 {
+    display: none;
+}
+
+/* Add the same margin as for buttons */
+input.buttonmargin {
+    margin: $picnic-separation / 2 0;
+}
+
+.search-results ul {
+    list-style-type: none;
+    margin: $picnic-separation * 2 0;
+    padding: 0;
+    li {
+        margin: 0 0 $picnic-separation 0;
+        padding: 0;
+        a {
+            font-size: 1.125em;
+            font-weight: bold;
+            display: block;
+        }
+    }
+}
+
+.contrast {
+    background-color: $coffeecream;
+    padding: $picnic-separation;
+    border-radius: $picnic-radius;
+}
+aside {
+    .toc {
+        padding: $picnic-separation / 2 0;
+        line-height: 1.2;
+        a.active {
+            font-weight: bold;
+            color: darken($gray,15%);
+        }
+    }
+    &.contrast {
+        box-shadow: 3px 3px 3px $macchiato;
+    }
+    @media (min-width: 1000) {
+        margin-right: $picnic-separation;
+    }
+}
+
+.prevnext {
+    border-top: 1px solid $macchiato;
+    background-color: $coffeecream;
+}
+section.flex > article.four-fifth-1000 {
+    @media (min-width: 1000px) {
+        padding-left: $picnic-separation * 3;
+    }
+
+}
+
+%label {
+    &.espresso {
+        background: lighten($espresso, 10%);
+    }
+}

@@ -1,0 +1,10 @@
+use_cache: true
+pandoc: true
+lunr_index: true
+sass_output_style: compressed
+site:
+    title: wmk documentation
+    lang: en
+    brand_icon: "/img/wmk-logo.png"
+    brand_name: wmk 
+    footer_tagline: wmk – a static site builder

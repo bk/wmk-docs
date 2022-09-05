@@ -1,0 +1,27 @@
+<%inherit file="../base.mhtml" />
+<%def name="page_title()">Search</%def>
+
+<%block name="content">
+<hgroup>
+   <h1 class="title">${ self.page_title() }</h1>
+</hgroup>
+<div class="flex five center search-container">
+  <div class="full four-fifth-800">
+    <form id="searchform" action="/search/" method="GET" class="flex five">
+      <div class="four-fifth">
+        <input id="searchfield" class="buttonmargin" type="search" name="q" placeholder="Search &#x1F50D;">
+      </div>
+      <div class="one-fifth">
+        <input type="submit" value="Search">
+      </div>
+    </form>
+    <div class="search-results" id="results">You need Javascript for the search functionality.</div>
+  </div>
+</div>
+</%block>
+    
+<%block name="body_append">
+<script src="/js/lunr.js"></script>
+<script src="/js/search.js"></script>
+<script>do_search();</script>
+</%block>

@@ -1,0 +1,58 @@
+<%inherit file="base.mhtml" />
+
+<%def name="page_title()">${ page.title }</%def>
+
+<%block name="content">
+  <% pages = MDCONTENT.page_match({'slug': r'.'}, ordering='weight') %>
+
+  <section class="flex five ml-0 w-a">
+    <div class="full p-0 toc-toggle show-0 hide-1000 mb-2">
+      <a id="toc-toggle" href="#" onclick="return toggle_toc()" class="button espresso">Show TOC &nbsp;&#x25ba;</a>
+    </div>
+    <aside id="toc" class="contrast full fifth-1000 mb-2 hide-0 show-1000">
+      <h2>Contents</h2>
+      <div class="links flex one two-500 three-700 one-1000 ml-0 w-a">
+        ${ _toc(pages) }
+      </div>
+    </aside>
+    <article class="full four-fifth-1000">
+      <hgroup id="page-title">
+        <h1 class="title">${ page.title }</h1>
+      </hgroup>
+      ${ CONTENT }
+      ${ _prevnext(pages)  }
+    </article>
+  </section>
+
+</%block>
+
+<%def name="_toc(pages)">
+  % for p in pages:
+    <div class="toc">
+      <a ${ 'class="active"' if p['url'] == SELF_URL else '' } href="${ p['url'] }">${ "Frontpage" if p['url']=='/index.html' else p['data']['page'].title }</a>
+    </div>
+  % endfor
+</%def>
+
+<%def name="_prevnext(pages)">
+  <% maxix = len(pages) - 1 %>
+  <div class="prevnext mt-3 center ta-center">
+  % for i, p in enumerate(pages):
+    % if p['url'] == SELF_URL:
+      <%
+        prev = pages[i-1] if i != 0 else None
+        next = pages[i+1] if i != maxix else None
+      %>
+      % if prev:
+        <a class="prev pseudo button" href="${prev['url']}">« ${"Frontpage" if i==1 else prev['data']['page'].title}</a>
+      % endif
+      % if prev and next:
+        <span class="sep">|</span>
+     % endif
+     % if next:
+        <a class="next pseudo button" href="${next['url']}">${next['data']['page'].title} »</a>
+     % endif
+    % endif
+  % endfor
+  </div>
+</%def>

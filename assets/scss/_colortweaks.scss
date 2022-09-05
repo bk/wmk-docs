@@ -1,0 +1,24 @@
+/* Overrides for picnic - as well as color-oriented classes */
+
+/* overrides bg #f5f5f5 in picnic */
+code, pre {
+    // color: darken($maroon, 15%);
+    background-color: lighten($coffeecream, 3%);
+}
+
+.inverse {
+    // Special rules for other contexts, e.g. buttons, will need to be added here later...
+    background-color: lighten($espresso, 10%);
+    color: $picnic-white;
+    a {
+        color: white;
+    }
+    code, pre {
+        color: $yellow;
+        background-color: $espresso;
+    }
+}
+
+.muted {
+    color: $macchiato;
+}
