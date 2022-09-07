@@ -8,3 +8,4 @@ site:
     brand_icon: "/img/wmk-logo.png"
     brand_name: wmk 
     footer_tagline: wmk – a static site builder
+    baseurl: 'https://wmk.baldr.net'
