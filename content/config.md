@@ -66,11 +66,29 @@ support for the following settings:
   `slidy`, `dzslides` or `reavealjs`.  These options have no effect unless
   `pandoc` is true; both may be overridden through frontmatter variables.
 
+- `pandoc_extra_formats`, `pandoc_extra_formats_settings`: If `pandoc` is True,
+  then `pandoc_extra_formats` in the frontmatter can be used to convert to
+  other formats than HTML, for instance PDF or MS Word (docx).
+  `pandoc_extra_formats` is a dict where each key is a format name (e.g.
+  `pdf`) and its value is the output filename relative to the web root (e.g.
+  `subdir/myfile.pdf`). `pandoc_extra_formats_settings`, if present, contains
+  any special settings for the conversion in the form of a dict where each key
+  is a format name and its value is either a dict with the keys `extra_args`
+  and/or `filters`, or a list (which then is interpreted as the value of
+  the `extra_args` setting).
+
 - `use_cache`: boolean, True by default. If you set this to False, the Markdown
   rendering cache will be disabled. This is useful for small and medium-sized
   projects where the final HTML output often depends on factors other than the
   Markdown files themselves. Note that caching for a specific file can be turned
   off by putting `no_cache: true` in the frontmatter.
+
+- `cache_mtime_matters`: boolean, False by default. Normally only the body of
+  the markdown file and a few selected processing settings make up the cache
+  key. If, on the other hand, this setting is True (either in the configuration
+  file or in the frontmatter), then the modification time of the markdown file
+  affects the cache key, so touching the file is sufficient for refreshing its
+  cache entry.
 
 - `sass_output_style`: The output style for Sass/SCSS rendering. This should be
   one of `compact`, `compressed`, `expanded` or `nested`. The default is

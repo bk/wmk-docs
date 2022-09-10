@@ -40,11 +40,12 @@ the list of files to be processed, i.e. `MDCONTENT`, or (2) the rendered HTML
 (including the parts supplied by the Mako template). A shortcode which needs
 either of these must place a (potential) placeholder in the Markdown source as
 well as a callback in `page.POSTPROCESS`. Each callback in this list will be
-called just before the generated HTML is written to `htdocs/`, receiving the
-full HTML as a first argument followed by the rest of the context for the page.
-Examples of such shortcodes are `linkto` and `pagelist`, described below. (For
-more on `page.POSTPROCESS` and `page.PREPROCESS`,
-see {{< linkto("Site and page variables") >}}).
+called just before the generated HTML is written to `htdocs/` (or, in the case
+of a cached page, after Markdown processing but right before the Mako layout
+template is called), receiving the full HTML as a first argument followed by the
+rest of the context for the page.  Examples of such shortcodes are `linkto` and
+`pagelist`, described below.  (For more on `page.POSTPROCESS` and
+`page.PREPROCESS`, see {{< linkto("Site and page variables") >}}).
 
 Here is an example of a shortcode in Markdown:
 

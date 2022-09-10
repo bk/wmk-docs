@@ -32,7 +32,9 @@ The following features are among the ones that set wmk apart:
 - Optional support for the powerful [Pandoc][pandoc] document converter, for the
   entire site or on a page-by-page basis. This gives you access to such features
   as LaTeX math markup and academic citations, as well as to Pandoc's
-  well-designed filter system for extending Markdown.
+  well-designed filter system for extending Markdown. Pandoc also enables you to
+  export your content to other formats (such as PDF) in addition to HTML, if you
+  so wish.
 
 The only major feature that wmk is missing compared to some other SSGs is tight
 integration with a Javascript assets pipeline and interaction layer. Thus, if

@@ -46,6 +46,12 @@ All of these return a new `MDContentList` object.
   "post", "blog", "blog-entry" or "blog_entry". Normally ordered by date (newest
   first), but this can be turned off by setting `ordered` to False.
 
+- `not_posts(self)`: Returns a new `MDContentList` with "pages", i.e. those
+  entries which are *not* blog posts.
+
+- `has_slug(self, sluglist)`, `has_id(self, idlist)`: Entries with specific
+  slugs/ids.
+
 - `in_date_range(self, start, end, date_key='DATE')`: Posts/pages with a date
   between `start` and `end`. The key for the date field can be specifed using
   `date_key`.  Unless the value for `date_key` is either `DATE` or `MTIME`, then
@@ -89,6 +95,7 @@ attributes (i.e. dict keys) are as follows:
 
 - `title`: A regular expression which will be applied to the page title.
 - `slug`: A regular expression which will be applied to the slug.
+- `id`: A string or list of strings (one of) which must match the page id exactly.
 - `url`: A regular expression which will be applied to the target URL.
 - `path`: A regular expression which will be applied to the path to the markdown
   source file (i.e. the `source_file_short` field).
