@@ -17,9 +17,9 @@ see {{< linkto("File organization") >}}.
   and `debug`.
 
 - `wmk init $basedir`: In a folder which contains `content/` (with Markdown
-  files) but no `wmk_config.yaml`, creates some initial templates as well
-  as a sample `wmk_config.yaml`, thus making it quicker for you to start a new
-  project.
+  or HTML files) but no `wmk_config.yaml`, creates some initial templates as
+  well as a sample `wmk_config.yaml`, thus making it quicker for you to start a
+  new project.
 
 - `wmk build $basedir [-q|--quick]`: Compiles/copies files into `$basedir/htdocs`.
   If `-q` or `--quick` is specified as the third argument, only files considered to

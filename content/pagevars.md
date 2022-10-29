@@ -88,10 +88,10 @@ files is `md_base.mhtml`.
 - `page.pretty_path`: If this is true, the basename of the markdown filename (or the
   slug) will become a directory name and the HTML output will be written to
   `index.html` inside that directory. By default it is false for files named
-  `index.md` and true for all other files. If the filename contains symbols that
-  do not match the character class `[\w.,=-]`, then it will be "slugified" before
-  final processing (although this only works for languages using the Latin
-  alphabet).
+  `index.md` or `index.html` and true for all other files. If the filename
+  contains symbols that do not match the character class `[\w.,=-]`, then it
+  will be "slugified" before final processing (although this only works for
+  languages using the Latin alphabet).
 
 - `page.do_not_render`: Tells `wmk` not to write the output of this template to
   a file in `htdocs`. All other processing will be done, so the gathered

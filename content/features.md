@@ -10,7 +10,7 @@ weight: 10
 The following features are present in several static site generators (SSGs); you
 might almost call them standard:
 
-- Markdown content with YAML metadata in the frontmatter.
+- Markdown or HTML content with YAML metadata in the frontmatter.
 - Support for themes.
 - Sass/SCSS support (via [`libsass`][libsass]).
 - Can generate a search index for use by [`lunr.js`][lunr].
@@ -21,7 +21,8 @@ The following features are among the ones that set wmk apart:
 - The content is rendered using [Mako][mako], a template system which makes all
   the resources of Python easily available to you.
 - "Stand-alone" templates – i.e. templates that are not used for presenting
-  Markdown-based content – are also rendered if present.
+  Markdown-based content – are also rendered if present. This can e.g. be used
+  for list pages or content based on external sources (such as a database).
 - Additional data for the site may be loaded from separate YAML files ­ or even
   (with a small amount of Python/Mako code) from other data sources such as CSV
   files, SQL databases or REST/graphql APIs.
