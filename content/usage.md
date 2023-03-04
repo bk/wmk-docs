@@ -8,9 +8,9 @@ weight: 30
 ## Usage
 
 The `wmk` command structure is `wmk <action> <base_directory>`. The base
-directory is of course the directory containing the source files in
-subdirectories such as `templates`, `content`, etc.  Also
-see {{< linkto("File organization") >}}.
+directory is of course the directory containing the source files for the site.
+(They are actually in subdirectories such as `templates`, `content`, etc. –
+see {{< linkto("File organization") >}}).
 
 - `wmk info $basedir`: Shows the real path to the location of `wmk.py` and of
   the content base directory. E.g. `wmk info .`. Synonyms for `info` are `env`
