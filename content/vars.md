@@ -8,7 +8,7 @@ weight: 60
 ## Context variables
 
 The Mako templates, whether they are stand-alone or being used to render
-Markdown content, receive the following context variables:
+Markdown (or other) content, receive the following context variables:
 
 - `DATADIR`: The full path to the `data` directory.
 - `WEBROOT`: The full path to the `htdocs` directory.
@@ -18,12 +18,12 @@ Markdown content, receive the following context variables:
   to the source template), `src_path` (full path to the source template),
   `target` (full path of the file to be written), and `url` (relative url to the
   file to be written).
-- `MDCONTENT`: An `MDContentList` representing all the markdown/html files which
+- `MDCONTENT`: An `MDContentList` representing all the content files which
   will potentially be rendered by a template. Each item in the list contains the
   keys `source_file`, `source_file_short` (truncated and full paths to the
   source), `target` (html file to be written), `template` (filename of the
   template which will be used for rendering), `data` (most of the context
-  variables seen by this content), `doc` (the raw markdown source), and `url`
+  variables seen by this content), `doc` (the raw content document source), and `url`
   (the `SELF_URL` value for this content – see below). Note that `MDCONTENT` is
   not available inside shortcodes.  An `MDContentList` is a list object with
   some convenience methods for filtering and sorting. It is described at the end
@@ -37,13 +37,13 @@ Markdown content, receive the following context variables:
 - `site`: A dict-like object containing the variables specified under the `site`
   key in `wmk_config.yaml`.
 
-When templates are rendering Markdown content, they additionally get the
-following context variables:
+When templates are rendering Markdown (or other) content, they additionally get
+the following context variables:
 
-- `CONTENT`: The rendered HTML produced from the markdown source.
-- `RAW_CONTENT`: The original markdown source.
-- `SELF_FULL_PATH`: The full path to the source Markdown file.
-- `MTIME`: A datetime object representing the modification time for the markdown
+- `CONTENT`: The rendered HTML produced from the source document.
+- `RAW_CONTENT`: The original source document.
+- `SELF_FULL_PATH`: The full path to the source document file.
+- `MTIME`: A datetime object representing the modification time for the source
   file.
 - `DATE`: A datetime object representing the first found value of `date`,
   `pubdate`, `modified_date`, `expire_date`, or `created_date` found in the YAML
@@ -60,6 +60,6 @@ following context variables:
   YAML files from the `data` directory loaded via the `LOAD` directive in the
   metadata.
 
-For further details on context variables set in the markdown frontmatter and in
+For further details on context variables set in the document frontmatter and in
 `index.yaml` files, see {{< linkto("Site and page variables") >}}.
 

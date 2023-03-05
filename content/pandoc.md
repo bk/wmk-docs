@@ -8,7 +8,7 @@ weight: 80
 ## A note on Pandoc
 
 Pandoc's variant of Markdown is very featureful and sophisticated, but since its
-use in `wmk` involves spawning an external process for each Markdown file being
+use in `wmk` involves spawning an external process for each content file being
 converted, it is quite a bit slower than Python-Markdown. Therefore, it is
 only recommended if you really do need it. Often, even if you do, it can be
 turned on for individual pages or site sections rather than for the entire site.
@@ -30,6 +30,7 @@ pandoc, then it will be asked to generate a table of contents which will be
 placed in the indicated location, just like the `toc` extension for
 Python-Markdown does. The `toc_depth` setting (whose default value is 3) is
 respected as well, although only in its integer form and not as a range (such as
-`"2-4"`).
+`"2-4"`). Note that currently this only works for Markdown documents, not for
+other formats such as Org or RST.
 
 

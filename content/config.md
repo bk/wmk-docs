@@ -22,7 +22,7 @@ support for the following settings:
   added to the template context under the key `site`. Also
   see {{< linkto("Site and page variables") >}}.
 
-- `render_drafts`: Normally, markdown files with `draft` set to a true value in
+- `render_drafts`: Normally, content files with `draft` set to a true value in
   the metadata section will be skipped during rendering. This can be turned off
   (so that the `draft` status flag is ignored) by setting `render_drafts` to True
   in the config file.
@@ -56,15 +56,20 @@ support for the following settings:
   Has no effect unless `pandoc` is true. May be set or overridden through
   frontmatter variables.
 
-- `pandoc_input_format`, `pandoc_output_format`: Which input and output formats
-  to assume for Pandoc. The defaults are `markdown` and `html`, respectively.
-  For the former the value should be a markdown subvariant, i.e. one of
-  `markdown` (pandoc-flavoured), `gfm` (github-flavoured), `markdown_mmd`
-  (MultiMarkdown), `markdown_phpextra`, or `markdown_strict`. For the latter,
-  it should be an HTML variant, i.e. either `html`, `html5` or `html4`, or
-  alternatively one of the HTML-based slide formats, i.e. `s5`, `slideous`,
-  `slidy`, `dzslides` or `reavealjs`.  These options have no effect unless
-  `pandoc` is true; both may be overridden through frontmatter variables.
+- `pandoc_input_format`: Which input format to assume for Pandoc. The default is `markdown`.
+  If set, the value should be a markdown subvariant for markdown-like content,
+  i.e. one of `markdown` (pandoc-flavoured), `gfm` (github-flavoured),
+  `markdown_mmd` (MultiMarkdown), `markdown_phpextra`, or `markdown_strict`.
+  (For other supported input formats, there is little reason to set
+  `pandoc_input_format` explicitly, since the format is tied to the file
+  extension). Has no effect unless `pandoc` is true; may also be set as 
+  a frontmatter variable.
+
+- `pandoc_output_format`: Output format for Pandoc. This should be a HTML
+  variant, i.e. either `html`, `html5` or `html4`, or alternatively one of the
+  HTML-based slide formats, i.e.  `s5`, `slideous`, `slidy`, `dzslides` or
+  `reavealjs`. Chunked HTML is not supported. Has no effect unless `pandoc` is
+  true; may also be set as  a frontmatter variable.
 
 - `pandoc_extra_formats`, `pandoc_extra_formats_settings`: If `pandoc` is True,
   then `pandoc_extra_formats` in the frontmatter can be used to convert to

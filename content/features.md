@@ -36,6 +36,8 @@ The following features are among the ones that set wmk apart:
   well-designed filter system for extending Markdown. Pandoc also enables you to
   export your content to other formats (such as PDF) in addition to HTML, if you
   so wish.
+- Via Pandoc, support for several non-Markdown input formats, namely LaTeX, Org,
+  RST, Textile and man.
 
 The only major feature that wmk is missing compared to some other SSGs is tight
 integration with a Javascript assets pipeline and interaction layer. Thus, if
