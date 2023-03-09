@@ -14,14 +14,14 @@ might almost call them standard:
 - Support for themes.
 - Sass/SCSS support (via [`libsass`][libsass]).
 - Can generate a search index for use by [`lunr.js`][lunr].
-- Shortcodes for more expressive and extensible Markdown content.
+- Shortcodes for more expressive and extensible content.
 
 The following features are among the ones that set wmk apart:
 
 - The content is rendered using [Mako][mako], a template system which makes all
   the resources of Python easily available to you.
 - "Stand-alone" templates – i.e. templates that are not used for presenting
-  Markdown-based content – are also rendered if present. This can e.g. be used
+  markdown-based content – are also rendered if present. This can e.g. be used
   for list pages or content based on external sources (such as a database).
 - Additional data for the site may be loaded from separate YAML files ­ or even
   (with a small amount of Python/Mako code) from other data sources such as CSV
@@ -33,11 +33,12 @@ The following features are among the ones that set wmk apart:
 - Optional support for the powerful [Pandoc][pandoc] document converter, for the
   entire site or on a page-by-page basis. This gives you access to such features
   as LaTeX math markup and academic citations, as well as to Pandoc's
-  well-designed filter system for extending Markdown. Pandoc also enables you to
+  well-designed filter system for extending markdown. Pandoc also enables you to
   export your content to other formats (such as PDF) in addition to HTML, if you
   so wish.
-- Via Pandoc, support for several non-Markdown input formats, namely LaTeX, Org,
-  RST, Textile and man.
+- Also via Pandoc, support for several non-markdown input formats for content,
+  namely LaTeX, Org, RST, Textile, man, JATS, TEI, Docbook, RTF, DOCX, ODT and
+  EPUB.
 
 The only major feature that wmk is missing compared to some other SSGs is tight
 integration with a Javascript assets pipeline and interaction layer. Thus, if

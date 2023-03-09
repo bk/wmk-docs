@@ -7,12 +7,12 @@ weight: 50
 
 ## A few gotchas
 
-The following are some of the things you might find surprising when creating a
-website with wmk:
+When creating a website with wmk, you might want to keep the following things in
+mind lest they surprise you:
 
 * The order of operations is as follows: (1) Copy files from `static/`; (2) run
   asset pipeline; (3) render Mako templates from `templates`; (4) render
-  Markdown content from `content`. As a consequence, later steps **may
+  markdown content from `content`. As a consequence, later steps **may
   overwrite** files placed by earlier steps. This is intentional but definitely
   something to keep in mind.
 
@@ -21,7 +21,7 @@ website with wmk:
   templates, markdown files and SCSS sources. The check is rather primitive and
   does not take account of such things as shortcodes or changed dependencies
   in the template chain. As a rule, `--quick` is therefore **not recommended**
-  unless you are working on a small, self-contained set of Markdown files.
+  unless you are working on a small, self-contained set of content files.
 
 * If templates or shortcodes have been changed it may sometimes be necessary to
   clear out the page rendering cache with `wmc c`. During development you may

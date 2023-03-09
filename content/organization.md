@@ -21,20 +21,24 @@ content and output. They will be created if they do not exist:
   subdirectory named `base`. For details on context variables received by such
   stand-alone templates, see {{< linkto("Context variables") >}}.
 
-- `content`: Markdown (`*.md`) and/or HTML (`*.html*`) content with YAML
-  metadata.
-  - Markdown will be converted into HTML and then "wrapped" in a layout  using
-    the `template` specified in the metadata or `md_base.mhtml` by default.
+- `content`: typically markdown (`*.md`) and/or HTML (`*.html*`) content with YAML
+  metadata, although other formats are also supported. For a full list,
+  see {{< linkto("Input formats") >}} above.
+  - Markdown (or other supported content) will be converted into HTML and then
+    "wrapped" in a layout  using the `template` specified in the metadata or
+    `md_base.mhtml` by default.
   - HTML files inside `content` are assumed to be fragments rather than complete
     documents. Accordingly, they will be wrapped in a layout just like the
-    converted markdown. In general, such content is treated just like Markdown
+    converted markdown. In general, such content is treated just like markdown
     files except that the markdown-to-html conversion step is skipped.  For
     instance, shortcodes can be used normally, although they may not work as
     expected if they return markdown rather than HTML. (Complete HTML documents
     are best placed in `static` rather than `content`).
-  - The YAML metadata may be at the top of the md/html document itself, inside a
-    frontmatter block delimited by `---`, or it may be in `index.yaml` files
-    which are inherited by subdirectories and the files contained in them.
+  - The YAML metadata may be (a) at the top of the md/html document itself,
+    inside a frontmatter block delimited by `---`; (b) in a separate file with
+    the same filename as the content file, but with an extra `.yaml` extension
+    added; or (c) it may be in `index.yaml` files which are inherited by
+    subdirectories and the files contained in them.
     For details, see {{< linkto("Site and page variables") >}}.
   - The target filename will be `index.html` in a directory corresponding to the
     basename of the source file – unless `pretty_path` in the metadata is `false`

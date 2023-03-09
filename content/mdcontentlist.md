@@ -19,7 +19,7 @@ entries for which the predicate (`pred`) is True.
 
 - `match_entry(self, pred)`: The `pred` (i.e. predicate) is a callable which
   receives the full information on each entry in the `MDContentList` and returns
-  True or False. 
+  True or False.
 
 - `match_ctx(self, pred)`: The `pred` receives the context for each entry and
   returns a boolean.
@@ -33,8 +33,8 @@ entries for which the predicate (`pred`) is True.
 - `url_match(self, url_pred)`: The `pred` receives the `url` (relative to
   `htdocs`) for each entry and returns a boolean.
 
-- `path_match(self, src_pred)`: The `pred` receives the path to the Markdown
-  source for each entry and returns a boolean.
+- `path_match(self, src_pred)`: The `pred` receives the path to the source
+  document for each entry and returns a boolean.
 
 ### Specialized searching/filtering
 

@@ -8,7 +8,7 @@ weight: 60
 ## Context variables
 
 The Mako templates, whether they are stand-alone or being used to render
-Markdown (or other) content, receive the following context variables:
+markdown (or other) content, receive the following context variables:
 
 - `DATADIR`: The full path to the `data` directory.
 - `WEBROOT`: The full path to the `htdocs` directory.
@@ -37,7 +37,7 @@ Markdown (or other) content, receive the following context variables:
 - `site`: A dict-like object containing the variables specified under the `site`
   key in `wmk_config.yaml`.
 
-When templates are rendering Markdown (or other) content, they additionally get
+When templates are rendering markdown (or other) content, they additionally get
 the following context variables:
 
 - `CONTENT`: The rendered HTML produced from the source document.

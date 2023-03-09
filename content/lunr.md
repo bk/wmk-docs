@@ -51,6 +51,8 @@ server-side or hosted solution such as [Algolia](https://www.algolia.com/) or
   using the information in `idx.summaries.json`, this must currently be solved
   independently by the template/theme author.
 
-- Note that only the raw Markdown content is indexed, not the HTML after the
-  Markdown has been processed. The output of Mako templates (including shortcodes)
-  is not indexed either.
+- Note that only the raw content document is indexed, not the HTML after the
+  markdown (or other input content) has been processed. The only exception to
+  this is that the binary input formats (DOCX, ODT, EPUB) are converted to
+  markdown before being indexed. The output of Mako templates (including
+  shortcodes called from the content documents) is not indexed either.

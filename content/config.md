@@ -47,7 +47,7 @@ support for the following settings:
     in the `wikilinks` frontmatter setting will be passed on to the extension.
     Example: `wikilinks: {'base_url': '/somewhere'}`.
 
-- `pandoc`: Normally [Python-Markdown][pymarkdown] is used for Markdown
+- `pandoc`: Normally [Python-Markdown][pymarkdown] is used for markdown
   processing, but if this boolean setting is true, then Pandoc via
   [Pypandoc][pypandoc] is used by default instead. This can be turned off or on
   through frontmatter variables as well.
@@ -56,20 +56,22 @@ support for the following settings:
   Has no effect unless `pandoc` is true. May be set or overridden through
   frontmatter variables.
 
-- `pandoc_input_format`: Which input format to assume for Pandoc. The default is `markdown`.
-  If set, the value should be a markdown subvariant for markdown-like content,
-  i.e. one of `markdown` (pandoc-flavoured), `gfm` (github-flavoured),
-  `markdown_mmd` (MultiMarkdown), `markdown_phpextra`, or `markdown_strict`.
-  (For other supported input formats, there is little reason to set
-  `pandoc_input_format` explicitly, since the format is tied to the file
-  extension). Has no effect unless `pandoc` is true; may also be set as 
-  a frontmatter variable.
+- `pandoc_input_format`: Which input format to assume for Pandoc; has no effect
+  unless `pandoc` is true. The default value is `markdown`.  If set, the value
+  should be a markdown subvariant for markdown-like content, i.e. one of
+  `markdown` (pandoc-flavoured), `gfm` (github-flavoured), `markdown_mmd`
+  (MultiMarkdown), `markdown_phpextra`, `markdown_strict`, `commonmark`, or
+  `commonmark_x`. As for other supported input formats, there is little reason
+  to set `pandoc_input_format` explicitly for them, since they have no variants
+  in the relevant sense, and the right format is picked based on the file
+  extension. May be set or overridden through frontmatter variables.
 
-- `pandoc_output_format`: Output format for Pandoc. This should be a HTML
-  variant, i.e. either `html`, `html5` or `html4`, or alternatively one of the
-  HTML-based slide formats, i.e.  `s5`, `slideous`, `slidy`, `dzslides` or
-  `reavealjs`. Chunked HTML is not supported. Has no effect unless `pandoc` is
-  true; may also be set as  a frontmatter variable.
+
+- `pandoc_output_format`: Output format for Pandoc; has no effect unless
+  `pandoc` is true. This should be a HTML variant, i.e. either `html`, `html5`
+  or `html4`, or alternatively one of the HTML-based slide formats, i.e.  `s5`,
+  `slideous`, `slidy`, `dzslides` or `reavealjs`. Chunked HTML (new in Pandoc 3)
+  is not supported. May be set or overridden through frontmatter variables.
 
 - `pandoc_extra_formats`, `pandoc_extra_formats_settings`: If `pandoc` is True,
   then `pandoc_extra_formats` in the frontmatter can be used to convert to
@@ -82,10 +84,10 @@ support for the following settings:
   and/or `filters`, or a list (which then is interpreted as the value of
   the `extra_args` setting).
 
-- `use_cache`: boolean, True by default. If you set this to False, the Markdown
+- `use_cache`: boolean, True by default. If you set this to False, the
   rendering cache will be disabled. This is useful for small and medium-sized
   projects where the final HTML output often depends on factors other than the
-  Markdown files themselves. Note that caching for a specific file can be turned
+  content file alone. Note that caching for a specific file can be turned
   off by putting `no_cache: true` in the frontmatter.
 
 - `cache_mtime_matters`: boolean, False by default. Normally only the body of

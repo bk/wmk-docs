@@ -16,7 +16,7 @@ see {{< linkto("File organization") >}}).
   the content base directory. E.g. `wmk info .`. Synonyms for `info` are `env`
   and `debug`.
 
-- `wmk init $basedir`: In a folder which contains `content/` (with Markdown
+- `wmk init $basedir`: In a folder which contains `content/` (with markdown
   or HTML files) but no `wmk_config.yaml`, creates some initial templates as
   well as a sample `wmk_config.yaml`, thus making it quicker for you to start a
   new project.

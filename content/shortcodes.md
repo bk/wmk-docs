@@ -13,8 +13,9 @@ the content, followed by any number of whitespace characters and the closing tag
 `>}}`.
 
 A typical use case is to easily embed content from external sites into your
-Markdown. More advanced possibilities include formatting a table containing data
-from a CSV file or generating a cropped and scaled thumbnail image.
+markdown (or other) content. More advanced possibilities include formatting a
+table containing data from a CSV file or generating a cropped and scaled
+thumbnail image.
 
 Shortcodes are implemented as Mako components named `<shortcode>.mc` in the
 `shortcodes` subdirectory of `templates` (or of some other directory in your
@@ -31,23 +32,24 @@ variable, `nth`, indicating number of invocations for that kind of shortcode in
 that markdown document; (4) `LOOKUP`, the Mako `TemplateLookup` object; and (5)
 the global template variables.
 
-Shortcodes are applied **before** the Markdown document is converted to HTML, so
-it is possible to replace a shortcode with Markdown content which will then be
-processed normally.
+Shortcodes are applied **before** the content document is converted to HTML, so
+it is possible to replace a shortcode with markdown content which will then be
+processed normally. Note, however, that this may lead to undesirable results
+when you use such shortcodes in a non-markdown content document.
 
 A consequence of this is that shortcodes do **not** have direct access to (1)
 the list of files to be processed, i.e. `MDCONTENT`, or (2) the rendered HTML
 (including the parts supplied by the Mako template). A shortcode which needs
-either of these must place a (potential) placeholder in the Markdown source as
+either of these must place a (potential) placeholder in the markdown source as
 well as a callback in `page.POSTPROCESS`. Each callback in this list will be
 called just before the generated HTML is written to `htdocs/` (or, in the case
-of a cached page, after Markdown processing but right before the Mako layout
+of a cached page, after document conversion but right before the Mako layout
 template is called), receiving the full HTML as a first argument followed by the
 rest of the context for the page.  Examples of such shortcodes are `linkto` and
 `pagelist`, described below.  (For more on `page.POSTPROCESS` and
 `page.PREPROCESS`, see {{< linkto("Site and page variables") >}}).
 
-Here is an example of a shortcode in Markdown:
+Here is an example of a simple shortcode call in markdown content:
 
 ```markdown
 ### Yearly expenses
@@ -106,8 +108,9 @@ Although they appear similar, **crocodiles** and **alligators** differ in easy-t
 """) >}}
 ```
 
-In this example, the caption contains Markdown which would be converted to HTML
-by the shortcode component.
+In this example, the caption contains markdown which would be converted to HTML
+by the shortcode component (assuming we're dealing with the default `figure`
+shortcode).
 
 Note that shortcodes are not escaped inside code blocks, so if you need to show
 examples of shortcode usage in your content they must be escaped in some way in
@@ -135,7 +138,7 @@ The following default shortcodes are provided by the `wmk` installation:
   defaults to the empty string), indicating what to show if the file is not
   found. The file must be inside the content directory (`CONTENTDIR`), otherwise
   it will not be read. The path is interpreted as relative to the directory in
-  which the Markdown file is placed. A path starting with `/` is taken to start
+  which the content file is placed. A path starting with `/` is taken to start
   at `CONTENTDIR`.  Nested includes are possible but the paths of subincludes
   are interpreted relative to the original directory (rather than the directory
   in which the included file has been placed). Note that `include()` is always
@@ -179,7 +182,7 @@ The following default shortcodes are provided by the `wmk` installation:
   template or literal Mako source code. The heuristic used to distinguish
   between these two cases is simply that filenames are assumed never to contain
   whitespace while Mako source code always does. In either case, the template
-  is called and its output inserted into the Markdown file. Any additional
+  is called and its output inserted into the content document. Any additional
   arguments are passed directly on to the template (which will also see the
   normal Mako context for the shortcode itself).
 

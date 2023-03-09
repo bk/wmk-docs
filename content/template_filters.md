@@ -35,7 +35,7 @@ Mako, the following filters are by default made available in templates:
 - `slugify`: Turns a string into a slug. Only works for strings in the Latin
   alphabet.
 
-- `markdownify`: Convert Markdown to HTML. It is possible to specify custom
+- `markdownify`: Convert markdown to HTML. It is possible to specify custom
   extensions using the `extensions` argument.
 
 - `truncate`: Convert markdown/html to plaintext and return the first `length`

@@ -7,14 +7,14 @@ weight: 110
 
 ## Site and page variables
 
-When a markdown file is rendered, the Mako template receives a number of
-context variables as partly described above. A few of these variables, such as
-`MDTEMPLATES` and `DATADIR` set directly by `wmk` (see above). Others are
-user-configured either (1) in `wmk_config.yaml` (the contents of the `site`
-object and potentially additional "global" varaibles in `template_context`); or
-(2) the cascade of `index.yaml` files in the `content` directory and its
-subdirectories along with the YAML frontmatter of the markdown file itself, the
-result of which is placed in the `page` object. 
+When a markdown file (or other supported content) is rendered, the Mako template
+receives a number of context variables as partly described above. A few of these
+variables, such as `MDTEMPLATES` and `DATADIR` set directly by `wmk` (see
+above). Others are user-configured either (1) in `wmk_config.yaml` (the contents
+of the `site` object and potentially additional "global" varaibles in
+`template_context`); or (2) the cascade of `index.yaml` files in the `content`
+directory and its subdirectories along with the YAML frontmatter of the markdown
+file itself, the result of which is placed in the `page` object.
 
 When gathering the content of the `page` variable, `wmk` will
 start by looking for `index.yaml` files in each parent directory of the markdown
@@ -22,6 +22,13 @@ file in question, starting at the root of the `content` directory and moving
 upwards, at each step extending and potentially overriding the data gathered at
 previous stages. Only then will the YAML in the frontmatter of the file itself
 be parsed and added to the `page` data.
+
+The file-specific frontmatter may be in the content file itself, or it may be in
+a separate YAML file with the same name as the content file but with an extra
+`.yaml` extension. For instance, if the content filename is `important.md`, then
+the YAML file would be named `important.md.yaml`. If both in-file and external
+frontmatter is present, the two will be merged, with the in-file values
+"winning" in case of conflict.
 
 At any point, a data source in this cascade may specify an extra YAML file using
 the special `LOAD` variable. This file will then be loaded as well and
@@ -101,9 +108,8 @@ files is `md_base.mhtml`.
 - `page.draft`: If this is true, it prevents further processing of the markdown
   file unless `render_drafts` has been set to true in the config file.
 
-- `page.no_cache`: If this is true, the Markdown rendering cache will not be
-  used for this file. (See also the `use_cache` setting in the configuration
-  file).
+- `page.no_cache`: If this is true, the rendering cache will not be used for
+  this file. (See also the `use_cache` setting in the configuration file).
 
 - `page.markdown_extensions`, `page.markdown_extension_configs`, `page.pandoc`,
   `page.pandoc_filters`, `page.pandoc_options`, `page.pandoc_input_format`,
@@ -121,9 +127,10 @@ files is `md_base.mhtml`.
   return the processed html.
 
 - `page.PREPROCESS`: This is analogous to `page.POSTPROCESS`, except that the
-  instructions in the list are applied to the Markdown just before converting it
-  to HTML. The function receives two arguments: the Markdown document text and
-  the `page` object. It should return the altered Markdown.
+  instructions in the list are applied to the markdown (or other content
+  document) just before converting it to HTML. The function receives two
+  arguments: the document text and the `page` object. It should return the
+  altered document.
 
 Note that if two files in the same directory have the same slug, they may both
 be rendered to the same output file; it is unpredictable which of them will go
