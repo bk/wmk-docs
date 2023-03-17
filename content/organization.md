@@ -72,9 +72,13 @@ content and output. They will be created if they do not exist:
   directly rather than having to do it via a shortcode. (For more on `PRE-` and
   `POSTPROCESS`, see {{< linkto("Site and page variables") >}}).
 
-- `assets`: Assets for an asset pipeline. Currently this only handles SCSS/Sass
-  files in the subdirectory `scss`. They will be compiled to CSS which is placed
-  in the target directory `htdocs/css`.
+- `assets`: Assets for an asset pipeline. The only default handling of assets
+  involves compiling SCSS/Sass files in the subdirectory `scss`. They will be
+  compiled to CSS which is placed in the target directory `htdocs/css`. Other
+  assets handling can be configured via settings in the configuration file, e.g.
+  `assets_commands` and `assets_fingerprinting`. This will be described in more
+  detail in the "Site and page variables" section. Also take note of the
+  `fingerprint` template filter, described in the "Template filters" section.
 
 - `static`: Static files. Everything in here will be rsynced directoy over to
   `htdocs`.

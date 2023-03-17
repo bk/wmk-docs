@@ -34,6 +34,8 @@ markdown (or other) content, receive the following context variables:
   template will be written to.
 - `SELF_TEMPLATE`: The path to the current template file (from the template
   root).
+- `ASSETS_MAP`: A map of fingerprinted assets (such as javascript or css files),
+  used by the `fingerprint` template filter.
 - `site`: A dict-like object containing the variables specified under the `site`
   key in `wmk_config.yaml`.
 

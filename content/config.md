@@ -97,9 +97,39 @@ support for the following settings:
   affects the cache key, so touching the file is sufficient for refreshing its
   cache entry.
 
+- `use_sass`: A boolean indicating whether to handle Sass/SCSS files in `assets/scss`
+  automatically. True by default.
+
 - `sass_output_style`: The output style for Sass/SCSS rendering. This should be
   one of `compact`, `compressed`, `expanded` or `nested`. The default is
-  `expanded`.
+  `expanded`. Has no effect if `use_sass` is false.
+
+- `assets_map`: An assets map is a mapping from filenames or aliases to names
+  of files containing a hash identifier (under the webroot). A typical entry
+  might thus map from `/css/style.css` to `/css/style.1234abcdef56.css`. The
+  value of this setting is either a dict or the name of a JSON or YAML file
+  (inside the data directory) containg the mapping. It will be available to
+  templates as `ASSETS_MAP`.
+
+- `assets_fingerprinting`: A boolean indicating whether to automatically
+  fingerprint assets files (i.e. add hash indicators to their names). If true,
+  any fingerprinted files will be added to the `ASSETS_MAP` template variable.
+
+- `assets_fingerprinting_conf`: A dict where the keys are subdirectories of the
+  webroot, e.g. `js` or `img/icons`, and the values are dicts containing the
+  keys `pattern` and (optionally) `exclude`. These are regular expressions
+  indicating which files to fingerprint under these directories. The filename is
+  fingerprinted if it matches `pattern` but does not match `exclude`. (The
+  default value of `exclude` looks for files that appear to have been
+  fingerprinted already and thus does not normally need to be set). The default
+  value of this setting is a simple setup for the `js` and `css` subdirectories
+  of the webroot.
+
+- `assets_commands`: A list of arbitrary commands to run at the assets
+  compilation stage (just before Sass/SCSS files in `assets/scss` are processed,
+  assuming `use_sass` is not false). The commands are run in order inside the
+  base directory of the site. Example: `['bin/fetch_external_assets.sh', 'node
+  esbuild.mjs']`.
 
 - `lunr_index`: If this is True, a search index for `lunr.js` is written as a
   file named `idx.json` in the root of the `htdocs/` directory. Basic

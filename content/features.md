@@ -41,9 +41,10 @@ The following features are among the ones that set wmk apart:
   EPUB.
 
 The only major feature that wmk is missing compared to some other SSGs is tight
-integration with a Javascript assets pipeline and interaction layer. Thus, if
-your site is reliant upon React, Vue or similar, then wmk is probably not the
-best way to go.
+integration with a Javascript assets pipeline and interaction layer. Although
+wmk allows you to configure virtually any assets processing you like, this
+nevertheless means that if your site is reliant upon React, Vue or similar, then
+other options are probably more convenient.
 
 That exception aside, wmk is suitable for building any small or medium-sized
 static website (up to a few hundred pages).

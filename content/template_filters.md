@@ -56,6 +56,11 @@ Mako, the following filters are by default made available in templates:
 
 - `cleanurl`: Remove trailing 'index.html' from URLs.
 
+- `fingerprint`: Replace an unadorned path to an assets file with its
+  fingerprinted (i.e. versioned) equivalent. Example: `${ '/js/site.js' | fingerprint }`.
+  Uses the corresponding entry from the `ASSETS_MAP` context variable if it is
+  available but otherwise proceeds to do the fingerprinting itself.
+
 If you wish to provide additional filters without having to explicitly define or
 import them in templates, the best way of doing this his to add them via the
 `mako_imports` setting in `wmk_config.yaml` (see above).
