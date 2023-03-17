@@ -77,8 +77,8 @@ content and output. They will be created if they do not exist:
   compiled to CSS which is placed in the target directory `htdocs/css`. Other
   assets handling can be configured via settings in the configuration file, e.g.
   `assets_commands` and `assets_fingerprinting`. This will be described in more
-  detail in the "Site and page variables" section. Also take note of the
-  `fingerprint` template filter, described in the "Template filters" section.
+  detail in {{< linkto("Site and page variables") >}}. Also take note of the
+  `fingerprint` template filter, described in {{< linkto("Template filters") >}}.
 
 - `static`: Static files. Everything in here will be rsynced directoy over to
   `htdocs`.

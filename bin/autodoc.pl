@@ -56,6 +56,7 @@ weight: $weight
 
 ] . $buf;
     $buf =~ s!\b([Ss]ee) (?:the )?"([^"]+)" section(?: below)?!$1 {{< linkto("$2") >}}!g;
+    $buf =~ s!\bin the (?:the )?"([^"]+)" section(?: below)?!in {{< linkto("$1") >}}!g;
     write_file("./content/$fn.md", $buf);
 }
 
