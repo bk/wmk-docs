@@ -12,8 +12,12 @@ of how `wmk` operates. The name of the file may be changed by setting the
 environment variable `WMK_CONFIG` which should contain a filename without a
 leading directory path.
 
-The configuration file **must** exist (but may be empty). Currently there is
-support for the following settings:
+The configuration file **must** exist (but may be empty). If it specifies a theme
+and a file named `wmk_config.yaml` (*regardless* of the `WMK_CONFIG` environment
+variable setting) exists in the theme directory, then any settings in that file
+will be merged with the main config – unless `ignore_theme_conf` is true.
+
+Currently there is support for the following settings:
 
 - `template_context`: Default values for the context passed to Mako templates.
   This should be a dict.
@@ -50,7 +54,8 @@ support for the following settings:
 - `pandoc`: Normally [Python-Markdown][pymarkdown] is used for markdown
   processing, but if this boolean setting is true, then Pandoc via
   [Pypandoc][pypandoc] is used by default instead. This can be turned off or on
-  through frontmatter variables as well.
+  through frontmatter variables as well. Another config setting which affects
+  whether Pandoc is used is `content_extensions`, for which see below.
 
 - `pandoc_filters`, `pandoc_options`: Lists of filters and options for Pandoc.
   Has no effect unless `pandoc` is true. May be set or overridden through
@@ -65,7 +70,6 @@ support for the following settings:
   to set `pandoc_input_format` explicitly for them, since they have no variants
   in the relevant sense, and the right format is picked based on the file
   extension. May be set or overridden through frontmatter variables.
-
 
 - `pandoc_output_format`: Output format for Pandoc; has no effect unless
   `pandoc` is true. This should be a HTML variant, i.e. either `html`, `html5`
@@ -165,7 +169,12 @@ support for the following settings:
   stand-alone page, but only if no local template overrides it (i.e. has the
   same relative path). Mako's internal template lookup will similarly first look
   for referenced components in the normal `template` directory before looking in
-  the theme directory.
+  the theme directory. Configuration settings from `wmk_config.yaml` in the
+  theme directory will be used as long as they do not conflict with those
+  in the main config file.
+
+- `ignore_theme_conf`: If set to true in the main configuration file, this tells
+  wmk to ignore any settings in `wmk_config.yaml` in the theme directory.
 
 - `extra_template_dirs`: A list of directories in which to look for Mako
   templates. These are placed after both `$basedir/templates` and theme-provided
@@ -179,6 +188,13 @@ support for the following settings:
   locations. The contents of the YAML file is a list of entries with the keys
   `from` and `to`. The former is a path under `htdocs/` or a list of such paths,
   while `to` is an absolute or relative URL which you are to be redirected to.
+
+- `content_extensions`: Customize which file extensions are handled inside the
+  `content/` directory. May be a list (e.g. `['.md', '.html']`) or a dict. The
+  value for each key in the dict should itself be a dict where the following keys
+  have an effect: `pandoc` (boolean), `pandoc_input_format` (string), `is_binary`
+  (boolean), `raw` (boolean), `pandoc_binary_format` (string). See the value
+  of `DEFAULT_CONTENT_EXTENSIONS` in `wmk.py` for details.
 
 [pymarkdown]: https://python-markdown.github.io/
 [pypandoc]: https://github.com/NicklasTegner/pypandoc

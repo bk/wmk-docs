@@ -8,7 +8,7 @@ weight: 45
 ## Input formats
 
 The format of the files in the `content/` directory is determined on the basis
-if their file extension. The following extensions are recognized:
+if their file extension. The following extensions are recognized by default:
 
 - `.md`, `.mdwn`, `.mdown`, `.markdown`, `.gfm`, `.mmd`: Markdown files.  If
   Pandoc is being used, the input formats `.gfm` and `.mmd` will be assumed to
@@ -45,8 +45,12 @@ if their file extension. The following extensions are recognized:
 
 - `.epub`: The EPUB e-book format.
 
-Pandoc is turned on automatically for all non-markdown, non-HTML formats.
-In order to use such content, Pandoc therefore *must* be installed.
+Pandoc is turned on automatically for all non-markdown, non-HTML formats in the
+above list.  In order to use such content, Pandoc therefore *must* be installed.
+
+The list of input formats and how they are handled is configurable through the
+`content_extensions` setting in the config file.
+See {{< linkto("Configuration file") >}} for details.
 
 **Note:** The three formats JATS, DocBook and TEI are all XML-based. Files in
 all three formats would therefore often use the generic `.xml` extension.
@@ -66,4 +70,6 @@ is limited to specific standard keys such as `title`, `author` and `date`.
 Note that although other input formats are supported, the *canonical* format is
 still markdown. Unless there is a special reason to do otherwise it is the most
 sensible and efficient choice for websites generated using `wmk`.
+
+
 
