@@ -82,11 +82,16 @@ Currently there is support for the following settings:
   other formats than HTML, for instance PDF or MS Word (docx).
   `pandoc_extra_formats` is a dict where each key is a format name (e.g.
   `pdf`) and its value is the output filename relative to the web root (e.g.
-  `subdir/myfile.pdf`). `pandoc_extra_formats_settings`, if present, contains
-  any special settings for the conversion in the form of a dict where each key
-  is a format name and its value is either a dict with the keys `extra_args`
-  and/or `filters`, or a list (which then is interpreted as the value of
-  the `extra_args` setting).
+  `subdir/myfile.pdf`). The special value `auto` indicates that the name of the
+  output file should be based on that of the source file but with the file
+  extension replaced by the name of the format. For instance, a source file
+  named `subdir/index.md` (relative to the content directory) maps to an output
+  file named `subdir/index.pdf` (relative to the web root directory) if the
+  output format is `pdf`, and so on. `pandoc_extra_formats_settings`, if
+  present, contains any special settings for the conversion in the form of a
+  dict where each key is a format name and its value is either a dict with the
+  keys `extra_args` and/or `filters`, or a list (which then is interpreted as
+  the value of the `extra_args` setting).
 
 - `use_cache`: boolean, True by default. If you set this to False, the
   rendering cache will be disabled. This is useful for small and medium-sized

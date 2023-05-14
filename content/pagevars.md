@@ -1,11 +1,11 @@
 ---
-title: "Site and page variables"
+title: "Site, page and nav variables"
 slug: pagevars
 weight: 110
 ---
 
 
-## Site and page variables
+## Site, page and nav variables
 
 When a markdown file (or other supported content) is rendered, the Mako template
 receives a number of context variables as partly described above. A few of these
@@ -48,6 +48,62 @@ variable named `foo`, then a template could contain a fragment such as
 named `bar`. Without this syntactic sugar you would have to write something much
 more defensive and long-winded such as  `${ page.foo.bar if page.foo and 'bar'
 in page.foo else 'splat' }`.
+
+### The `nav` variable
+
+The `nav` key in the `wmk_config.yaml` file, if present, will be treated as
+a navigation tree for the site and represented as a tree-like `Nav` object.
+
+A typical nav setting looks something like this:
+
+```yaml
+nav:
+    - Home: /
+    - User Guide:
+        - Lorem:
+            - Ipsum: /guide/ipsum/
+            - Eu fuit: /guide/mageisse/
+        - Dolor sit amet: /guide/concupescit/
+    - Resources:
+        - Community: 'https://example.com/'
+        - Source code: 'https://github.com/example/com/'
+    - About:
+        - License: /about/license/
+        - History: /about/history/
+```
+
+In templates, this will be available as the `nav` variable.
+
+There are two types of entries in the nav: links and sections. A link is just a
+title and an URL. A section has a title and a list of links or sections
+(possibly nested).
+
+Each item has a `parent` (with the `nav` itself as the top level parent) and a
+`level` (starting from 0 for the immediate children of the `nav`).
+The `nav` has a `homepage` attribute which by default is the first local link in
+the nav. Each local link has `previous` and `next` attributes. Each section has
+`children`. There are other attributes but these are the basics.
+
+The `nav` variable is relatively new (as of version 1.2.x, May 2023) and not
+really supported by themes yet. It is especially intended for sites with a
+hierarchical structure but neither very many pages nor deeply nested, such as a
+typical documentation site.
+
+### The `TOC` variable
+
+When a page is rendered, the generated HTML is examined and a simple table of
+contents object constructed, which will be available to templates as `TOC`. It
+contains a list of the top-level headings (i.e. H1 headings, or H2 headings if
+no H1 headings are present, etc.), with lower-level headings hierarchically
+arranged in its `children`. Other attributes are `url` and `title`.
+`TOC.item_count` contains the heading count (regardless of nesting).
+
+The `TOC` variable can e.g. be used by the page template to show a table of
+contents elsewhere on the page.
+
+The table of contents object is not constructed unless each heading has an `id`
+attribute. When using the default python-markdown, this means that the `toc`
+extension must be active.
 
 ### System variables
 
@@ -172,6 +228,9 @@ Site variables are the keys-value pairs under `site:` in `wmk_config.yaml`.
 - `site.build_time`: This is automatically added to the site variable by `wmk`.
   It is a datetime object indicating when the rendering phase of the current
   run started.
+
+- `site.lunr_search`: A boolean automatically added to the site variable.
+  It is true when `lunr_index` is true in the configuration file.
 
 Templates or themes may be configurable through various site variables, e.g.
 `site.paginate` for number of items per page in listings or `site.mainfont` for

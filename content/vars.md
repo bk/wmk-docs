@@ -44,7 +44,9 @@ the following context variables:
 
 - `CONTENT`: The rendered HTML produced from the source document.
 - `RAW_CONTENT`: The original source document.
-- `SELF_FULL_PATH`: The full path to the source document file.
+- `SELF_FULL_PATH`: The full filesystem path to the source document file.
+- `SELF_SHORT_PATH`: The path to the source document file relative to the
+  content directory.
 - `MTIME`: A datetime object representing the modification time for the source
   file.
 - `DATE`: A datetime object representing the first found value of `date`,

@@ -7,7 +7,7 @@ weight: 90
 
 ## Available themes
 
-Currently there are three wmk themes available:
+Currently there are four wmk themes available:
 
 - [Lanyonesque][lanyonesque], a blog-oriented theme based on the Jekyll theme
   [Lanyon][lanyon]. [Demo][ldemo].
@@ -17,6 +17,8 @@ Currently there are three wmk themes available:
 
 - [Picompany][pcomp], a general-purpose theme based on the [Company][company]
   template that accompanies the [PicoCSS][pico] documentation. [Demo][pdemo].
+
+- [WDocs], a full-featured documentation theme. [Demo][wdemo].
 
 [lanyonesque]: https://github.com/bk/lanyonesque
 [lanyon]: https://github.com/poole/lanyon
@@ -29,4 +31,6 @@ Currently there are three wmk themes available:
 [company]: https://picocss.com/examples/company/
 [pico]: https://picocss.com/
 [pdemo]: https://picompany.baldr.net/
+[WDocs]: https://github.com/bk/wdocs-theme
+[wdemo]: https://wdocs.baldr.net/
 

@@ -56,8 +56,17 @@ Mako, the following filters are by default made available in templates:
 
 - `cleanurl`: Remove trailing 'index.html' from URLs.
 
+- `url`: Unless the given path already starts with '/', '.' or 'http',
+  prefix it with the first defined leading path of `site.leading_path`,
+  `site.base_url` or a literal `/`. Postfix a `/` unless the path already has
+  one or seems to end with a file extension. Calls `cleanurl` on the result.
+
+- `to_json`: converts the given data structure to JSON. Note that this should
+  not normally be used as a string filter (i.e. `${ value | to_json }`)
+  but directly as a function, like this: `${ to_json(value) }`.
+
 - `fingerprint`: Replace an unadorned path to an assets file with its
-  fingerprinted (i.e. versioned) equivalent. Example: `${ '/js/site.js' | fingerprint }`.
+  fingerprinted (i.e. versioned) equivalent. Example: `${ 'js/site.js' | url, fingerprint }`.
   Uses the corresponding entry from the `ASSETS_MAP` context variable if it is
   available but otherwise proceeds to do the fingerprinting itself.
 
