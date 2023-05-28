@@ -39,7 +39,7 @@ content and output. They will be created if they do not exist:
     the same filename as the content file, but with an extra `.yaml` extension
     added; or (c) it may be in `index.yaml` files which are inherited by
     subdirectories and the files contained in them.
-    For details, see {{< linkto("Site and page variables") >}}.
+    For details, see {{< linkto("Site, page and nav variables") >}}.
   - The target filename will be `index.html` in a directory corresponding to the
     basename of the source file – unless `pretty_path` in the metadata is `false`
     or the name of the file itself is `index.md` or `index.html` (in which case
@@ -70,14 +70,14 @@ content and output. They will be created if they do not exist:
   actions by name (i.e. keys in the `autoload` dict) rather than as function
   references, which in turn makes it possible to specify them in the frontmatter
   directly rather than having to do it via a shortcode. (For more on `PRE-` and
-  `POSTPROCESS`, see {{< linkto("Site and page variables") >}}).
+  `POSTPROCESS`, see {{< linkto("Site, page and nav variables") >}}).
 
 - `assets`: Assets for an asset pipeline. The only default handling of assets
   involves compiling SCSS/Sass files in the subdirectory `scss`. They will be
   compiled to CSS which is placed in the target directory `htdocs/css`. Other
   assets handling can be configured via settings in the configuration file, e.g.
   `assets_commands` and `assets_fingerprinting`. This will be described in more
-  detail in {{< linkto("Site and page variables") >}}. Also take note of the
+  detail in {{< linkto("Site, page and nav variables") >}}. Also take note of the
   `fingerprint` template filter, described in {{< linkto("Template filters") >}}.
 
 - `static`: Static files. Everything in here will be rsynced directoy over to

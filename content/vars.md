@@ -65,5 +65,5 @@ the following context variables:
   metadata.
 
 For further details on context variables set in the document frontmatter and in
-`index.yaml` files, see {{< linkto("Site and page variables") >}}.
+`index.yaml` files, see {{< linkto("Site, page and nav variables") >}}.
 

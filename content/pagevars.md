@@ -186,7 +186,9 @@ files is `md_base.mhtml`.
   instructions in the list are applied to the markdown (or other content
   document) just before converting it to HTML. The function receives two
   arguments: the document text and the `page` object. It should return the
-  altered document.
+  altered document source. Note that this happens before shortcodes have
+  been expanded, so (unlike `page.POSTPROCESS`) such actions cannot be added via
+  shortcode.
 
 Note that if two files in the same directory have the same slug, they may both
 be rendered to the same output file; it is unpredictable which of them will go
@@ -207,7 +209,11 @@ Site variables are the keys-value pairs under `site:` in `wmk_config.yaml`.
 
 - `site.title`: Name or title of the site.
 
-- `site.lang`: Language code, e.g. 'en' or 'en-us'.
+- `site.lang`: Language code, e.g. 'en' or 'en-us'. Used e.g. for translations by
+  some themes.
+
+- `site.locale`: Locale code, e.g. 'en_US.utf8'. Used when sorting `MDCONTENT`
+  by name or title.
 
 - `site.tagline`: Subtitle or slogan.
 

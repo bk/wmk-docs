@@ -47,7 +47,7 @@ of a cached page, after document conversion but right before the Mako layout
 template is called), receiving the full HTML as a first argument followed by the
 rest of the context for the page.  Examples of such shortcodes are `linkto` and
 `pagelist`, described below.  (For more on `page.POSTPROCESS` and
-`page.PREPROCESS`, see {{< linkto("Site and page variables") >}}).
+`page.PREPROCESS`, see {{< linkto("Site, page and nav variables") >}}).
 
 Here is an example of a simple shortcode call in markdown content:
 

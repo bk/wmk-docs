@@ -24,7 +24,7 @@ Currently there is support for the following settings:
 
 - `site`: Values for common information relating to the website. These are also
   added to the template context under the key `site`. Also
-  see {{< linkto("Site and page variables") >}}.
+  see {{< linkto("Site, page and nav variables") >}}.
 
 - `render_drafts`: Normally, content files with `draft` set to a true value in
   the metadata section will be skipped during rendering. This can be turned off
@@ -92,6 +92,12 @@ Currently there is support for the following settings:
   dict where each key is a format name and its value is either a dict with the
   keys `extra_args` and/or `filters`, or a list (which then is interpreted as
   the value of the `extra_args` setting).
+
+- `slugify_dirs`: Affects the names of directories created in `htdocs` because
+  of the `pretty_path` setting. If `true` (which is the default), the name will
+  be identical to the `slug` of the source file. If explicitly set to `false`,
+  then the directory name will be the same as the basename of the source file,
+  almost regardless of the characters in the filename.
 
 - `use_cache`: boolean, True by default. If you set this to False, the
   rendering cache will be disabled. This is useful for small and medium-sized
@@ -200,6 +206,12 @@ Currently there is support for the following settings:
   have an effect: `pandoc` (boolean), `pandoc_input_format` (string), `is_binary`
   (boolean), `raw` (boolean), `pandoc_binary_format` (string). See the value
   of `DEFAULT_CONTENT_EXTENSIONS` in `wmk.py` for details.
+
+- `mdcontent_json`: This option may specify the name of a JSON file to which
+  to write the entire `MDCONTENT` object in serialized form, along with the
+  environment variables for each page. The destination file may be either in
+  `htdocs/`, `data/` or `tmp/`. If the file path does not start with one of
+  these, `data` is assumed. The specified (or implied) directory must exist.
 
 [pymarkdown]: https://python-markdown.github.io/
 [pypandoc]: https://github.com/NicklasTegner/pypandoc

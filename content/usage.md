@@ -46,3 +46,17 @@ see {{< linkto("File organization") >}}).
   `wmk_config.yaml` by setting `use_cache` to `false`, or on file-by-file basis
   via a frontmatter setting (`no_cache`). A synonym for `clear-cache` is `c`.
 
+- `wmk preview $basedir $filename` where `$filename` is the name of a file relative
+  to the `content` subdirectory of `$basedir`. This prints (to stdout) the HTML
+  which the given file will be converted to (before it is passed to the Mako
+  template and before potential post-processing). Example: `wmk preview .
+  index.md`.
+
+- `wmk admin $basedir`: Build the site and then start [wmkAdmin](https://github.com/bk/wmk-admin/),
+  which must have been installed beforehand into the `admin` subdirectory of the
+  `$basedir` (or into the subdirectory specified with `wmk admin $basedir $subdir`).
+  The subdirectory may be a symbolic link pointing to a central instance.
+  wmkAdmin allows you to manage the content of the site via a web interface. It
+  is not designed to allow you to alter the Mako templates, install themes or
+  perform other tasks that require more technical knowledge.
+
