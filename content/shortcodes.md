@@ -176,7 +176,8 @@ The following default shortcodes are provided by the `wmk` installation:
 - `resize_image`: Scales and crops images to a specified size. Required
   arguments: `path`, `width`, `height`. Optional arguments: `op` ('fit_width',
   'fit_height', 'fit', 'fill'; the last is the default), `format` ('jpg' or
-  'png'; default is 'jpg'), `quality` (default 0.75 and applies only to jpegs).
+  'png'; default is 'jpg'), `quality` (default 0.75 and applies only to jpegs),
+  `focal_point` (default `center`; only used for `op='fill'`).
   Returns a path under `/resized_images/` (possibly prefixed with the value of
   `site.leading_path`) pointing to the resized version of the image.  The
   filename is a SHA1 hash + an extension, so repeated requests for the same

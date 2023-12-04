@@ -7,7 +7,7 @@ weight: 90
 
 ## Available themes
 
-Currently there are four wmk themes available:
+Currently there are five wmk themes available:
 
 - [Lanyonesque][lanyonesque], a blog-oriented theme based on the Jekyll theme
   [Lanyon][lanyon]. [Demo][ldemo].
@@ -19,6 +19,8 @@ Currently there are four wmk themes available:
   template that accompanies the [PicoCSS][pico] documentation. [Demo][pdemo].
 
 - [WDocs], a full-featured documentation theme. [Demo][wdemo].
+
+- [Birta], the theme used for [bornogtonlist.net](https://www.bornogtonlist.net/)
 
 [lanyonesque]: https://github.com/bk/lanyonesque
 [lanyon]: https://github.com/poole/lanyon
@@ -33,4 +35,5 @@ Currently there are four wmk themes available:
 [pdemo]: https://picompany.baldr.net/
 [WDocs]: https://github.com/bk/wdocs-theme
 [wdemo]: https://wdocs.baldr.net/
+[Birta]: https://github.com/bk/birta-theme/
 
