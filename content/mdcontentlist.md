@@ -85,7 +85,8 @@ All of these return a new `MDContentList` object (at least by default).
   files at the top. The `limit`, if specified, obviously indicates the maximum
   number of pages to return.
 
-- `page_match_sql()` – see {{< linkto("Searching/filtering using SQL") >}}.
+- `page_match_sql()` – see [Searching/filtering using
+  SQL](#searchingfiltering-using-sql) below.
 
 A `match_expr` for `page_match()` is either a dict or a list of dicts.  If it is
 a dict, each page in the result set must match each of the attributes specified
