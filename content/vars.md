@@ -58,6 +58,7 @@ the following context variables:
   which depend on other markdown content which itself may contain shortcodes.
   The callable receives a dict containing the keys `doc` (the markdown) and
   `data` (the context variables) and returns rendered HTML.
+- `LOOKUP`: The Mako `TemplateLookup` object.
 - `page`: A dict-like object containing the variables defined in the YAML meta
   section at the top of the markdown file, in `index.yaml` files in the markdown
   file directory and its parent directories inside `content`, and possibly in

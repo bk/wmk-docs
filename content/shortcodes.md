@@ -29,8 +29,7 @@ The shortcode component will have access to a context composed of (1) the
 parameters directly specified in the shortcode call; (2) the information from
 the metadata block of the markdown file in which it appears; (3) a counter
 variable, `nth`, indicating number of invocations for that kind of shortcode in
-that markdown document; (4) `LOOKUP`, the Mako `TemplateLookup` object; and (5)
-the global template variables.
+that markdown document; and (4) the global template variables.
 
 Shortcodes are applied **before** the content document is converted to HTML, so
 it is possible to replace a shortcode with markdown content which will then be
@@ -199,7 +198,7 @@ The following default shortcodes are provided by the `wmk` installation:
   `css_class`, `autoplay`, `dnt` (do not track), `muted`, `title`.
 
 - `youtube`: A YouTube video. One required argument: `id`. Optional arguments:
-  `css_class`, `autoplay`, `title`.
+  `css_class`, `autoplay`, `title`, `nowrap`, `nocookie`, `width`, `height`.
 
 - `wp`: A link to Wikipedia. One required argument: `title`. Optional arguments:
   `label`, `lang`. Example: `{{< wp('L.L. Zamenhof', lang='eo') >}}`.
