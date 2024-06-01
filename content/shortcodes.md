@@ -159,19 +159,21 @@ The following default shortcodes are provided by the `wmk` installation:
 
 - `pagelist`: Runs a `page_match()` and lists the found pages. Required argument:
   `match_expr`. Optional arguments: `exclude_expr`, `ordering`, `limit`,
-  `template`, `fallback`, `template_args`. `exclude_expr` is a match expression
-  which serves to *exclude* pages from the list found using the `match_expr`.
-  For instance, `pagelist({'has_tag': True}, exclude_expr={'has_tag':
-  'private'})` finds all tagged pages except those that have the tag `private`.
-  The default way of representing the found pages is a simple unordered list of
-  links to them, using the page titles as the link text. If nothing is found, a
-  string specified in the `fallback` parameter (by default an empty string)
-  replaces the shortcode call. The formatting of the list can be changed by
-  pointing to a Mako template using the `template` argument, which will receive
-  the argument `pagelist` (a `MDContentList` of found pages), as well as
-  `template_args`, if any. The template will only be called if something is
-  found.
-
+  `template`, `fallback`, `template_args`, `sql_match`. `exclude_expr` is a
+  match expression which serves to *exclude* pages from the list found using the
+  `match_expr`.  For instance, `pagelist({'has_tag': True},
+  exclude_expr={'has_tag': 'private'})` finds all tagged pages except those that
+  have the tag `private`.  The default way of representing the found pages is a
+  simple unordered list of links to them, using the page titles as the link
+  text. If nothing is found, a string specified in the `fallback` parameter (by
+  default an empty string) replaces the shortcode call. The formatting of the
+  list can be changed by pointing to a Mako template using the `template`
+  argument, which will receive the argument `pagelist` (a `MDContentList` of
+  found pages), as well as `template_args`, if any. The template will only be
+  called if something is found. If `sql_match` is True, the `match_expr` and
+  `ordering` and `limit` will be passed to `page_match_sql()` (as
+  `where_clause`, `order_by`, and `limit`, respectively) rather than to
+  `page_match()`.
 - `resize_image`: Scales and crops images to a specified size. Required
   arguments: `path`, `width`, `height`. Optional arguments: `op` ('fit_width',
   'fit_height', 'fit', 'fill'; the last is the default), `format` ('jpg' or

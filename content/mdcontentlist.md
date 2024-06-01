@@ -139,7 +139,7 @@ in-memory database:
   offset=None, raw_sql=None, raw_result=False, first=False)`: Either
   `where_clause` or `raw_sql` must be specified. In either case, if `bind` is
   specified, the bind variables there will be applied to the SQL upon execution.
-  If `order_by` (a string), `limit` or `offest` (integers) are specified, they
+  If `order_by` (a string), `limit` or `offset` (integers) are specified, they
   will be appended to the SQL before executing it against the database
   connection. The result will be a `MDContentList` unless `raw_result` is True,
   in which case it is a cursor object.  (If `raw_result` is False but `raw_sql`

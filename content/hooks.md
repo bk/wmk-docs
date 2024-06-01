@@ -23,6 +23,7 @@ before or after them, or can be redefined entirely:
 - `get_assets_map`
 - `get_content_extensions`
 - `get_content`
+- `get_extra_content`
 - `get_index_yaml_data`
 - `get_templates`
 - `handle_redirects`
@@ -69,13 +70,12 @@ change your hook functions.
 
 ### Example
 
-Here is a slightly simplified `get_content()` def which fetches the content from
-a database rather than from the `content/` directory.
+Here is a generic `get_extra_content()` def which adds HTML pages fetched from a
+database to the "normal" content from the `content/` directory:
 
 ```
-def get_content(ctdir, datadir, outputdir, template_vars, conf, **kwargs):
-    content = []
-    known_ids = set()
+def get_extra_content(content, ctdir, datadir, outputdir, template_vars, conf):
+    known_ids = set([_['data']['page']['id'] for _ in content])
     content_extensions = { '.html': {'raw': True}, }
     extpat = re.compile(r'\.html$')
     result = _get_articles_from_database()
@@ -87,10 +87,6 @@ def get_content(ctdir, datadir, outputdir, template_vars, conf, **kwargs):
             pseudo['root'], pseudo['fn'],
             pseudo['source_file'], pseudo['source_file_short'],
             extpat, False)
-    content = wmk.MDContentList(content)
-    template_vars['MDCONTENT'] = content
-    wmk.index_content(content, conf, ctdir)
-    return content
 ```
 
 The functions `_get_articles_from_database()` and `_munge_row()` are left as an
