@@ -56,3 +56,4 @@ server-side or hosted solution such as [Algolia](https://www.algolia.com/) or
   this is that the binary input formats (DOCX, ODT, EPUB) are converted to
   markdown before being indexed. The output of Mako templates (including
   shortcodes called from the content documents) is not indexed either.
+
