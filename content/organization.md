@@ -80,6 +80,6 @@ content and output. They will be created if they do not exist:
   detail in {{< linkto("Site, page and nav variables") >}}. Also take note of the
   `fingerprint` template filter, described in {{< linkto("Template filters") >}}.
 
-- `static`: Static files. Everything in here will be rsynced directoy over to
+- `static`: Static files. Everything in here will be rsynced directly over to
   `htdocs`.
 

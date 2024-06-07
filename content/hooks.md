@@ -18,17 +18,20 @@ before or after them, or can be redefined entirely:
 
 - `binary_to_markdown`
 - `build_lunr_index`
+- `copy_static_files`
 - `doc_with_yaml`
-- `extra_template_vars`
 - `fingerprint_assets`
 - `get_assets_map`
 - `get_content_extensions`
 - `get_content`
 - `get_extra_content`
 - `get_index_yaml_data`
+- `get_mako_lookup`
+- `get_template_vars`
 - `get_templates`
 - `handle_redirects`
 - `index_content`
+- `locale_and_translation`
 - `lunr_summary`
 - `mako_shortcode`
 - `markdown_extensions_settings`
@@ -95,8 +98,8 @@ exercise for the reader.
 
 Here is an `__after` hook for `maybe_extra_meta()` which fetches a conference
 schedule (e.g. from from an online calendar) if the `conference_id` key is
-present in the frontmatter.  The retreived information will then be available to
-templates as `page.schedule`.
+present in the frontmatter.  The retrieved information will then be available to
+the templates for that page as `page.schedule`.
 
 ```python
 def maybe_extra_meta__after(meta):
@@ -104,3 +107,17 @@ def maybe_extra_meta__after(meta):
         meta['schedule'] = _get_conference_schedule(meta['conference_id'])
     return meta
 ```
+
+A third example: Let's say you want to show information from a few RSS sources
+in a sidebar that will appear on several pages. In order to avoid refetching it
+for each page you can use something like this:
+
+```python
+def get_template_vars__after(template_vars):
+    if 'rss_sources' in template_vars:
+        template_vars['rss_info'] = fetch_rss_feeds(template_vars['rss_sources'])
+    return template_vars
+```
+
+This assumes that you set `rss_sources` in the `template_context` section of
+your `wmk_config.yaml` file.

@@ -123,7 +123,7 @@ Currently there is support for the following settings:
   of files containing a hash identifier (under the webroot). A typical entry
   might thus map from `/css/style.css` to `/css/style.1234abcdef56.css`. The
   value of this setting is either a dict or the name of a JSON or YAML file
-  (inside the data directory) containg the mapping. It will be available to
+  (inside the data directory) containing the mapping. It will be available to
   templates as `ASSETS_MAP`.
 
 - `assets_fingerprinting`: A boolean indicating whether to automatically

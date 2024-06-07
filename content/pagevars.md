@@ -11,7 +11,7 @@ When a markdown file (or other supported content) is rendered, the Mako template
 receives a number of context variables as partly described above. A few of these
 variables, such as `MDTEMPLATES` and `DATADIR` set directly by `wmk` (see
 above). Others are user-configured either (1) in `wmk_config.yaml` (the contents
-of the `site` object and potentially additional "global" varaibles in
+of the `site` object and potentially additional "global" variables in
 `template_context`); or (2) the cascade of `index.yaml` files in the `content`
 directory and its subdirectories along with the YAML frontmatter of the markdown
 file itself, the result of which is placed in the `page` object.

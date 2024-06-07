@@ -20,7 +20,7 @@ languages will be applied when building the index. The value may be a two-letter
 lowercase country code (ISO-639-1) or a list of such codes. The currently
 accepted languages are `de`, `da`, `en`, `fi`, `fr`, `hu`, `it`, `nl`, `no`,
 `pt`, `ro`, and `ru` (this is the intersection of the languages supported by
-`lunr.js` and NLTK, respecively). The default language is `en`. Attempting to
+`lunr.js` and NLTK, respectively). The default language is `en`. Attempting to
 specify a non-supported language will raise an exception.
 
 The index is built via the [`lunr.py`](https://lunr.readthedocs.io/en/latest/)

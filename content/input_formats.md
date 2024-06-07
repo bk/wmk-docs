@@ -12,7 +12,7 @@ if their file extension. The following extensions are recognized by default:
 
 - `.md`, `.mdwn`, `.mdown`, `.markdown`, `.gfm`, `.mmd`: Markdown files.  If
   Pandoc is being used, the input formats `.gfm` and `.mmd` will be assumed to
-  be `gfm` (Github-flavored markdown) and `markdown_mmd` (MultiMarkdown),
+  be `gfm` (GitHub-flavored markdown) and `markdown_mmd` (MultiMarkdown),
   respectively. Note, however, that currently non-YAML metadata given in
   MultiMarkdown format is not picked up automatically in `.mmd` files).
 
@@ -36,7 +36,7 @@ if their file extension. The following extensions are recognized by default:
 
 - `.docbook`: The XML-based DocBook format.
 
-- `.tei`: The Simple variant of the XML-based TEI (Text Encoding Intiative)
+- `.tei`: The Simple variant of the XML-based TEI (Text Encoding Initiative)
   format.
 
 - `.docx`: MS Word DOCX a.k.a. "Office Open XML" format.

@@ -21,7 +21,7 @@ Mako, the following filters are by default made available in templates:
   default 'sec', but 'day',  'hour' and 'frac' are also acceptable values); and
   `with_tz` (by default False).
 
-- `date_to_rfc822`: Format a datatime as RFC 822 (a common datetime format in
+- `date_to_rfc822`: Format a datetime as RFC 822 (a common datetime format in
   email headers and some types of XML documents).
 
 - `date_short`: E.g. "7 Nov 2022".

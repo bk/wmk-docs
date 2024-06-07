@@ -23,7 +23,7 @@ Mako search path, e.g. `themes/<my-theme>/templates/shortcodes`).
 
 The shortcode itself looks like a function call. Note that positional
 arguments can only be used if the component has an appropriate `<%page>`
-block declaring the exepected arguments.
+block declaring the expected arguments.
 
 The shortcode component will have access to a context composed of (1) the
 parameters directly specified in the shortcode call; (2) the information from
@@ -138,7 +138,7 @@ The following default shortcodes are provided by the `wmk` installation:
   found. The file must be inside the content directory (`CONTENTDIR`), otherwise
   it will not be read. The path is interpreted as relative to the directory in
   which the content file is placed. A path starting with `/` is taken to start
-  at `CONTENTDIR`.  Nested includes are possible but the paths of subincludes
+  at `CONTENTDIR`.  Nested includes are possible but the paths of sub-includes
   are interpreted relative to the original directory (rather than the directory
   in which the included file has been placed). Note that `include()` is always
   handled before other shortcodes.
