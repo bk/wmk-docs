@@ -37,8 +37,8 @@ The following features are among the ones that set wmk apart:
   export your content to other formats (such as PDF) in addition to HTML, if you
   so wish.
 - Also via Pandoc, support for several non-markdown input formats for content,
-  namely LaTeX, Org, RST, Textile, man, JATS, TEI, Docbook, RTF, DOCX, ODT and
-  EPUB.
+  namely LaTeX, Org, RST, Textile, Djot, Typst, man, JATS, TEI, Docbook, RTF,
+  DOCX, ODT and EPUB.
 
 The only major feature that wmk is missing compared to some other SSGs is tight
 integration with a Javascript assets pipeline and interaction layer. Although

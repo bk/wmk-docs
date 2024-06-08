@@ -28,9 +28,13 @@ if their file extension. The following extensions are recognized by default:
 
 - `.textile`: Textile markup format.
 
+- `.dj`: The Djot lightweight markup format.
+
 - `.man`: Roff man format.
 
 - `.rtf`: Rich Text Format (RTF).
+
+- `.typ`: Typst format.
 
 - `.jats`, `.xml`: The XML-based JATS (Journal Article Tag Suite) format.
 
@@ -46,7 +50,8 @@ if their file extension. The following extensions are recognized by default:
 - `.epub`: The EPUB e-book format.
 
 Pandoc is turned on automatically for all non-markdown, non-HTML formats in the
-above list.  In order to use such content, Pandoc therefore *must* be installed.
+above list.  In order to use such content, a sufficiently recent version of
+Pandoc therefore *must* be installed.
 
 The list of input formats and how they are handled is configurable through the
 `content_extensions` setting in the config file.
