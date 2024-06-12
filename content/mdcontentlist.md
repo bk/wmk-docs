@@ -72,6 +72,17 @@ All of these return a new `MDContentList` object (at least by default).
 - `in_section(self, sectionlist)`: A shortcut method for
   `self.has_taxonomy(['section', 'sections'], sectionlist)`.
 
+- `group_by(self, pred, normalize=None, keep_empty=False)`: Group items in an
+  MDContentList using a given criterion. Parameters: `pred` is a callable
+  receiving a content item and returning a string or a list of strings. For
+  convenience, `pred` may also be specified as a string and is then interpreted
+  as the value of the named `page` variable, e.g. `category`; `normalize` is an
+  optional callable that transforms the grouping values, e.g. by truncating and
+  lowercasing them; `keep_empty` should be set to True when the content items
+  whose predicate evaluates to the empty string are to be included in the
+  result, since they otherwise will be omitted. Returns a dict whose keys are
+  strings and whose values are `MDContentList` instances.
+
 - `page_match(self, match_expr, ordering=None, limit=None)`: This is actually
   quite a general matching method but does not require the caller to pass a
   predicate callable to it, which means that it can be employed in more varied

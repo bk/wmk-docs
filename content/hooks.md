@@ -21,6 +21,7 @@ before or after them, or can be redefined entirely:
 - `copy_static_files`
 - `doc_with_yaml`
 - `fingerprint_assets`
+- `generate_summary`
 - `get_assets_map`
 - `get_content_extensions`
 - `get_content`
