@@ -41,6 +41,7 @@ before or after them, or can be redefined entirely:
 - `pandoc_extra_formats`
 - `pandoc_metadata`
 - `parse_dates`
+- `post_build_actions`
 - `postprocess_html`
 - `preferred_date`
 - `process_assets`

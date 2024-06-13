@@ -159,7 +159,7 @@ Currently there is support for the following settings:
 - `lunr_languages`: A two-letter language code or a list of such codes,
   indicating which language(s) to use for stemming when building a Lunr index.
   The default language is `en`. For more on this,
-  see {{< linkto("Site search using Lunr") >}}.
+  see {{< linkto("Site search") >}}.
 
 - `http`: This is is a dict for configuring the address used for `wmk serve`.
   It may contain either or both of two keys: `port` (default: 7007) and `ip`

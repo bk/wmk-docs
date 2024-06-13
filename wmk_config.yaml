@@ -1,6 +1,7 @@
 use_cache: true
 pandoc: true
 lunr_index: true
+redirects: true
 sass_output_style: compressed
 site:
     title: wmk documentation
