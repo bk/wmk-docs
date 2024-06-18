@@ -7,7 +7,7 @@ weight: 70
 
 ## Configuration file
 
-A config file, `$basedir/wmk_config.yaml`, can be used to configure some aspects
+A config file, `$basedir/wmk_config.yaml`, can be used to configure many aspects
 of how `wmk` operates. The name of the file may be changed by setting the
 environment variable `WMK_CONFIG` which should contain a filename without a
 leading directory path.
@@ -17,14 +17,27 @@ and a file named `wmk_config.yaml` (*regardless* of the `WMK_CONFIG` environment
 variable setting) exists in the theme directory, then any settings in that file
 will be merged with the main config – unless `ignore_theme_conf` is true.
 
+It is also possible to split the configuration file up into several smaller
+files. These are placed in the `data/wmk_config.d/` directory. The filename of
+each yaml file in that directory (minus the `.yaml` extension) is treated as a
+key and the contents as its value. Subdirectories can be used to represent a
+nested structure. For instance, the file
+`data/wmk_config.d/site/colors/darkmode.yaml` would contain the settings that
+will be visible to templates as the `site.colors.darkmode` variable.
+Note that the `WMK_CONFIG` environment variable affects the name of the
+directory looked for inside `data/`; setting it to `myconf.yaml` would e.g.
+mean that `wmk` will inspect `data/myconf.d/` for extra configuration settings
+instead of `data/wmk_config.d/`.
+
 Currently there is support for the following settings:
 
 - `template_context`: Default values for the context passed to Mako templates.
   This should be a dict.
 
 - `site`: Values for common information relating to the website. These are also
-  added to the template context under the key `site`. Also
-  see {{< linkto("Site, page and nav variables") >}}.
+  added to the template context under the key `site`. They are often used by
+  templates and themes to affect the look and feel of the website. For further
+  discussion, see {{< linkto("Site, page and nav variables") >}}.
 
 - `render_drafts`: Normally, content files with `draft` set to a true value in
   the metadata section will be skipped during rendering. This can be turned off

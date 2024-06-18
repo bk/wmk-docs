@@ -16,6 +16,7 @@ affect the same functionality, the project directory takes precedence.
 Currently, the following defs from `wmk.py` can be extended by running hooks
 before or after them, or can be redefined entirely:
 
+- `auto_nav_from_content`
 - `binary_to_markdown`
 - `build_lunr_index`
 - `copy_static_files`
@@ -28,6 +29,7 @@ before or after them, or can be redefined entirely:
 - `get_extra_content`
 - `get_index_yaml_data`
 - `get_mako_lookup`
+- `get_nav`
 - `get_template_vars`
 - `get_templates`
 - `handle_redirects`
