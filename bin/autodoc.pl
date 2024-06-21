@@ -24,7 +24,7 @@ $pubdate ||= DateTime->now->ymd;
 my @content = read_file("$wmk_home/readme.md");
 die "Need content for processing. No readme.md in $wmk_home?" unless @content;
 
-write_file("./content/index.yaml", "pubdate: $pubdate\nversion: $version\n");
+write_file("./content/index.yaml", "pubdate: $pubdate\nversion: \"$version\"\nnav_section: Root\n");
 
 my ($buf, $fn, $title, $weight);
 

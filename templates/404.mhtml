@@ -1,7 +1,0 @@
-<%inherit file="base.mhtml" />
-<%def name="page_title()">Page not found</%def>
-<%block name="content">
-  <h1>404 Not Found</h1>
-  <p>The page you requested does not exist.</p>
-  <p><a href="/" class="button espresso">Go to the front page.</a></p>
-</%block>

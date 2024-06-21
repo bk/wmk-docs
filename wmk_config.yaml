@@ -1,12 +1,48 @@
-use_cache: true
-pandoc: true
-lunr_index: true
 redirects: true
 sass_output_style: compressed
+theme: walto
 site:
-    title: wmk documentation
-    lang: en
-    brand_icon: "/img/wmk-logo-white.svg"
-    brand_name: wmk 
-    footer_tagline: wmk – a static site builder
-    baseurl: 'https://wmk.baldr.net'
+  title: wmk documentation
+  lang: en
+  brand_icon: "/img/wmk-logo-white.svg"
+  brand_name: wmk
+  footer_tagline: wmk – a static site builder
+  base_url: 'https://wmk.baldr.net'
+  leading_path: ''
+  project_name: wmk — a static site builder
+  default_og_image: /images/pexels-eliza-craciunescu-2243791-4058026.1400x933.jpg
+  head_extra: |
+    <style>
+    .sup-800 { display: none; }
+    .sup-600 { display: none; }
+    @media (min-width: 600px) {
+      .sup-600 { display: block; }
+      .sup-600.inl { display: inline-block; }
+      .sub-600 { display: none; }
+    }
+    @media (min-width: 801px) {
+      .sup-800 { display: block; }
+      .sup-800.inl { display: inline-block; }
+      .sub-800 { display: none; }
+    }
+    </style>
+  favicon:
+    default: /favicon.ico
+    small: /icon-192.png
+    large: /icon-512.png
+    apple_touch: /apple-touch-icon.png
+  home_title: Home
+  main_nav:
+    title: Navigation
+    sections_collapsible: false
+  topnav_links:
+    - title: GitHub
+      url: https://github.com/bk/wmk
+      label: v1.10
+      icon: /images/github.svg
+  logo:
+    heading: wmk
+    image: /img/wmk-logo.svg
+  pagefind: true
+  footer:
+    disable: true
