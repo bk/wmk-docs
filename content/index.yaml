@@ -1,3 +1,4 @@
 pubdate: 2024-06-21
 version: "1.10.1"
 nav_section: Root
+generate_summary: true

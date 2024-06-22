@@ -4,6 +4,7 @@ slug: index
 weight: 1
 no_cache: true
 nav_section: null
+summary: wmk is a flexible and versatile static site generator written in Python. This website contains the official documentation for the most recent release of wmk.
 ---
 
 wmk is a flexible and versatile static site generator written in Python.
