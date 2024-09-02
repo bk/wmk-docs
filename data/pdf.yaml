@@ -1,0 +1,17 @@
+---
+title: wmk
+subtitle: static site generator
+author: Baldur Kristinsson
+date: version 1.10.3, 2024-09-01
+lang: en
+indent: true
+toc-indent: 1.5em
+abstract: |
+  wmk is a flexible and versatile static site generator written in Python. It
+  supports themes, SCSS, shortcodes and site search, and although it is
+  primarily designed for Markdown or HTML content files, it can handle multiple
+  input formats via Pandoc. wmk can be extended by writing hooks in Python,
+  making it possible to override or modify most aspects of its operation. To
+  get the source code, install the program, or contribute to the project,
+  please take a look at the [GitHub repository](<https://github.com/bk/wmk>).
+---

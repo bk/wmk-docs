@@ -17,3 +17,9 @@ search field below the page header.
 
 To get the source code, install the program, or contribute to the project,
 please take a look at the [GitHub repository](https://github.com/bk/wmk).
+
+- [**This documentation in PDF format**](/wmk.pdf).
+
+<div class="prevnext" data-pagefind-ignore="">
+  <span class="next"><a href="/features/">Getting started »</a></span>
+</div>

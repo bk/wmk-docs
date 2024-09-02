@@ -38,7 +38,7 @@ site:
   topnav_links:
     - title: GitHub
       url: https://github.com/bk/wmk
-      label: v1.10.1
+      label: v1.10.3
       icon: /images/github.svg
       alt: github icon
   logo:

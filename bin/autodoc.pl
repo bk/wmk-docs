@@ -3,6 +3,7 @@
 use strict;
 use File::Slurp qw/read_file write_file/;
 use DateTime;
+use FindBin qw/$Bin/;
 
 #####
 # Script for updating the wmk documentation site from the wmk readme file.
@@ -11,6 +12,9 @@ use DateTime;
 # Currently the only markdown content which is not part of the readme file
 # and thus needs to be (occasionally) edited by hand is content/index.md.
 ######
+
+chdir $Bin;
+chdir "..";
 
 die "FATAL: Must be run in the wmk-docs dir: cannot find ./content/\n"
     unless -d "./content";
@@ -41,6 +45,8 @@ foreach my $line (@content) {
     $buf .= $line;
 }
 write_content($buf, $fn, $title, $weight) if $fn;
+
+system("bin/makepdf.sh");
 
 
 ### SUBS BELOW
