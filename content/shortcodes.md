@@ -17,9 +17,11 @@ markdown (or other) content. More advanced possibilities include formatting a
 table containing data from a CSV file or generating a cropped and scaled
 thumbnail image.
 
-Shortcodes are implemented as Mako components named `<shortcode>.mc` in the
-`shortcodes` subdirectory of `templates` (or of some other directory in your
-Mako search path, e.g. `themes/<my-theme>/templates/shortcodes`).
+Shortcodes are normally implemented as Mako components named `<shortcode>.mc` in
+the `shortcodes` subdirectory of `templates` (or of some other directory in your
+template search path, e.g. `themes/<my-theme>/templates/shortcodes`). If
+`jinja2_templates` is set to true, however, the shortcode templates are in
+Jinja2 format instead, and use the `.jc` extension rather than `.mc`.
 
 The shortcode itself looks like a function call. Note that positional
 arguments can only be used if the component has an appropriate `<%page>`
@@ -92,6 +94,11 @@ keys = info[0].keys()
   </tbody>
 </table>
 ```
+
+Note that if Jinja2 templates are being used, positional arguments are not
+supported except for in built-in shortcodes, so the shortcode call in the
+Markdown in the above example would have to be changed to
+`cvs_table(csvfile='expenses_2021.csv')` or similar.
 
 Shortcodes can take up more than one line if desired, for instance:
 
@@ -186,16 +193,24 @@ The following default shortcodes are provided by the `wmk` installation:
   resize operation are only performed once.  The source `path` is taken to be
   relative to the `WEBROOT`, i.e. the project `htdocs` directory.
 
-- `template`: The first argument (`template`) is either the filename of a Mako
-  template or literal Mako source code. The heuristic used to distinguish
+- `template`: The first argument (`template`) is either the filename of a
+  template or literal template source code. The heuristic used to distinguish
   between these two cases is simply that filenames are assumed never to contain
-  whitespace while Mako source code always does. In either case, the template
-  is called and its output inserted into the content document. Any additional
-  arguments are passed directly on to the template (which will also see the
-  normal Mako context for the shortcode itself).
+  whitespace while source code always does. In either case, the template
+  is called and its output inserted into the content document. The boolean
+  argument `is_jinja` (default False) can be used to indicate that the given
+  template source code is to be handled by Jinja2; otherwise Mako is assumed.
+  For template files, however, the currently active engine as determined by the
+  value of the `jinja2_templates` is always used, regardless of the `is_jinja`
+  parameter. Any additional arguments are passed directly on to the template
+  (which will also see the normal template context for the shortcode itself).
 
 - `twitter`: A tweet. Takes a `tweet_id`, which may be a Twitter status URL or
   the last part (i.e. the actual ID) of the URL.
+
+- `var`: The value of a variable, e.g. `"page.title"` or `"site.description"`.
+  One required argument: `varname`. Optional argument: `default` (which defaults
+  to the empty string), indicating what to show if the variable is not available.
 
 - `vimeo`: A Vimeo video. One required argument: `id`. Optional arguments:
   `css_class`, `autoplay`, `dnt` (do not track), `muted`, `title`.
@@ -205,8 +220,4 @@ The following default shortcodes are provided by the `wmk` installation:
 
 - `wp`: A link to Wikipedia. One required argument: `title`. Optional arguments:
   `label`, `lang`. Example: `{{< wp('L.L. Zamenhof', lang='eo') >}}`.
-
-- `var`: The value of a variable, e.g. `"page.title"` or `"site.description"`.
-  One required argument: `varname`. Optional argument: `default` (which defaults
-  to the empty string), indicating what to show if the variable is not available.
 

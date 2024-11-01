@@ -48,7 +48,7 @@ see {{< linkto("File organization") >}}).
 
 - `wmk preview $basedir $filename` where `$filename` is the name of a file relative
   to the `content` subdirectory of `$basedir`. This prints (to stdout) the HTML
-  which the given file will be converted to (before it is passed to the Mako
+  which the given file will be converted to (before it is passed to the
   template and before potential post-processing). Example: `wmk preview .
   index.md`.
 
@@ -57,8 +57,9 @@ see {{< linkto("File organization") >}}).
   `$basedir` (or into the subdirectory specified with `wmk admin $basedir $subdir`).
   The subdirectory may be a symbolic link pointing to a central instance.
   wmkAdmin allows you to manage the content of the site via a web interface. It
-  is not designed to allow you to alter the Mako templates, install themes or
-  perform other tasks that require more technical knowledge.
+  is not designed to allow you to install or modify themes or perform tasks that
+  require more technical knowledge, and works best for a standard site based on
+  Markdown or HTML files in the `content` directory.
 
 - `wmk repl $basedir`: Launch a Python shell (ipython, bpython or python3, in
   order of preference) with the wmk environment loaded and with the `$basedir`
@@ -66,4 +67,11 @@ see {{< linkto("File organization") >}}).
   content or debugging `MDContent` filtering methods. For these purposes, `from
   wmk import get_content_info`, followed by `content = get_content_info('.')` is
   often a good start.
+
+- `wmk pip <pip-command>`: Run `pip` in the virtual environment used by wmk.
+  Mainly useful for installing or upgrading Python modules that you want to use
+  in Python files belonging to your projects.
+
+- `wmk homedir`: Outputs the path to `wmk`'s installation directory. May be
+  useful in shell scripts.
 

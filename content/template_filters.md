@@ -7,9 +7,10 @@ weight: 120
 
 ## Template filters
 
-In addition to the [built-in template
-filters](https://docs.makotemplates.org/en/latest/filtering.html) provided by
-Mako, the following filters are by default made available in templates:
+In addition to the built-in template filters provided by
+[Mako]((https://docs.makotemplates.org/en/latest/filtering.html)) or
+[Jinja2](https://jinja.palletsprojects.com/en/stable/templates/#list-of-builtin-filters)
+respectively, the following filters are by default made available in templates:
 
 - `date`: date formatting using strftime. By default, the format '%c' is used.
   A different format is specified using the `fmt` parameter, e.g.:
@@ -70,10 +71,12 @@ Mako, the following filters are by default made available in templates:
   Uses the corresponding entry from the `ASSETS_MAP` context variable if it is
   available but otherwise proceeds to do the fingerprinting itself.
 
-If you wish to provide additional filters without having to explicitly define or
-import them in templates, the best way of doing this his to add them via the
-`mako_imports` setting in `wmk_config.yaml` (see above).
+If you wish to provide additional filters in Mako without having to explicitly
+define or import them in templates, the best way of doing this his to add them
+via the `mako_imports` setting in `wmk_config.yaml` (see above). There is
+currently no easy way to do this if Jinja2 templates are being used, however.
 
 Please note that in order to avoid conflicts with the above filters you should
-not place a file named `wmk_mako_filters.py` in your `py/` directories.
+not place a file named `wmk_mako_filters.py` or `wmk_jinja2_extras.py` in your
+`py/` directories.
 

@@ -32,7 +32,7 @@ file/directory name is fixed).
 
 Currently there is support for the following settings:
 
-- `template_context`: Default values for the context passed to Mako templates.
+- `template_context`: Default values for the context passed to templates.
   This should be a dict.
 
 - `site`: Values for common information relating to the website. These are also
@@ -201,11 +201,18 @@ Currently there is support for the following settings:
 - `ignore_theme_conf`: If set to true in the main configuration file, this tells
   wmk to ignore any settings in `wmk_config.yaml` in the theme directory.
 
-- `extra_template_dirs`: A list of directories in which to look for Mako
-  templates. These are placed after both `$basedir/templates` and theme-provided
-  templates in the Mako search path. This makes it possible to build up a
-  library of Mako components which can be easily used on multiple sites and
+- `extra_template_dirs`: A list of directories in which to look for template
+  files. These are placed after both `$basedir/templates` and theme-provided
+  templates in the template engine search path. This makes it possible to build
+  up a library of components which can be easily used on multiple sites and
   across different themes.
+
+- `jinja2_templates`: If this boolean setting is true, it indicates that the
+  template files in the `template` directory (and supplied by the theme, or
+  otherwise in the template engine search path) are to be interpreted by Jinja2
+  rather than Mako. Note that Jinja2 templates used standalone or as layout
+  templates for Markdown content should have the extension `.html` rather than
+  `.mhtml`.
 
 - `redirects`: If this is True or a string pointing to a YAML file in the
   `data/` directory (whose default name is `redirects.yaml`), then wmk will

@@ -7,7 +7,7 @@ weight: 60
 
 ## Context variables
 
-The Mako templates, whether they are stand-alone or being used to render
+The Mako/Jinja2 templates, whether they are stand-alone or being used to render
 markdown (or other) content, receive the following context variables:
 
 - `DATADIR`: The full path to the `data` directory.
@@ -26,8 +26,8 @@ markdown (or other) content, receive the following context variables:
   variables seen by this content), `doc` (the raw content document source), and `url`
   (the `SELF_URL` value for this content – see below). Note that `MDCONTENT` is
   not available inside shortcodes.  An `MDContentList` is a list object with
-  some convenience methods for filtering and sorting. It is described at the end
-  of this Readme file.
+  some convenience methods for filtering and sorting. It will be described
+  further later on.
 - Whatever is defined under `template_context` in the `wmk_config.yaml` file
   (see {{< linkto("Configuration file") >}}).
 - `SELF_URL`: The relative path to the HTML file which the output of the
@@ -36,8 +36,21 @@ markdown (or other) content, receive the following context variables:
   root).
 - `ASSETS_MAP`: A map of fingerprinted assets (such as javascript or css files),
   used by the `fingerprint` template filter.
+- `LOADER`: The template loader/env. In the case of Mako, this is a
+  `TemplateLookup` object; in the case of Jinja2 this is an `Environment`
+  object with a `FileSystemLoader` loader.
 - `site`: A dict-like object containing the variables specified under the `site`
   key in `wmk_config.yaml`.
+
+In the case of Jinja2 templates, three extra context variables are available:
+
+- `mako_lookup`: A Mako `TemplateLookup` instance which makes it possible to call
+  Mako templates from a Jinja2 template.
+- `get_context`: A function returning all context variables as a dict.
+- `imp0rt`: A function which can be used to import a Python module into a Jinja
+  template, e.g. `{% set utils = imp0rt('my_utils') %}`. The main intent is to
+  make code inside the project `py/` subdirectory as easily available in Jinja
+  templates as it is in Mako templates.
 
 When templates are rendering markdown (or other) content, they additionally get
 the following context variables:
@@ -58,7 +71,6 @@ the following context variables:
   which depend on other markdown content which itself may contain shortcodes.
   The callable receives a dict containing the keys `doc` (the markdown) and
   `data` (the context variables) and returns rendered HTML.
-- `LOOKUP`: The Mako `TemplateLookup` object.
 - `page`: A dict-like object containing the variables defined in the YAML meta
   section at the top of the markdown file, in `index.yaml` files in the markdown
   file directory and its parent directories inside `content`, and possibly in

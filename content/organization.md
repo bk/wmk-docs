@@ -13,13 +13,15 @@ content and output. They will be created if they do not exist:
 - `htdocs`: The output directory. Rendered, processed or copied content is
   placed here, and `wmk serve` will serve files from this directory.
 
-- `templates`: Mako templates. Templates with the extension `.mhtml` are
-  rendered directly into `htdocs` as `.html` files (or another extension if the
-  filename ends with `.$ext\.mhtml`, where `$ext` is a string consisting of 2-4
-  alphanumeric characters), unless their filename starts with a dot or
-  underscore or contains the string `base`, or if they are directly inside a
-  subdirectory named `base`. For details on context variables received by such
-  stand-alone templates, see {{< linkto("Context variables") >}}.
+- `templates`: Mako templates (or Jinja2 templates if `jinja2_templates` is set
+  to true in `wmk_config.yaml`). Templates with the extension `.mhtml` (`.html`
+  if Jinja2 templates are being used) are rendered directly into `htdocs` as
+  `.html` files (or another extension if the filename ends with
+  `.$ext\.mhtml`/`$ext\.html`, where `$ext` is a string consisting of 2-4
+  alphanumeric characters), *unless* their filename starts with a dot or
+  underscore or contains the string `base`, or if they are inside a subdirectory
+  named `base`. For details on context variables received by such stand-alone
+  templates, see {{< linkto("Context variables") >}}.
 
 - `content`: typically markdown (`*.md`) and/or HTML (`*.html*`) content with YAML
   metadata, although other formats are also supported. For a full list,
@@ -45,7 +47,7 @@ content and output. They will be created if they do not exist:
     or the name of the file itself is `index.md` or `index.html` (in which case
     the relative path is remains the same, except that the extension is of
     course changed to `.html` if the source is a markdown file).
-  - The processed content will be passed to the Mako template as a string in the
+  - The processed content will be passed to the template as a string in the
     context variable `CONTENT`, along with other metadata.
   - A YAML datasource can be specified in the metadata block as `LOAD`; the data
     in this file will be added to the context. For further details on the
@@ -60,17 +62,18 @@ content and output. They will be created if they do not exist:
   typically also be placed here.
 
 - `py`: Directory for Python files. This directory is automatically added to the
-  front of `sys.path` before Mako is initialized, meaning that Mako templates
-  can import modules placed here. Implicit imports are possible by setting
-  `mako_imports` in the config file (see {{< linkto("Configuration file") >}}).
-  There are also two special files that may be placed here: `wmk_autolaod.py` in
-  your project, and `wmk_theme_autoload.py` in the theme's `py/` directory.  If
-  one or both of these is present, wmk imports a dict named `autoload` from
-  them. This means that you can assign `PREPROCESS` and `POSTPROCESS` page
-  actions by name (i.e. keys in the `autoload` dict) rather than as function
-  references, which in turn makes it possible to specify them in the frontmatter
-  directly rather than having to do it via a shortcode. (For more on `PRE-` and
-  `POSTPROCESS`, see {{< linkto("Site, page and nav variables") >}}).
+  front of `sys.path` before Mako or Jinja2 is initialized, meaning that templates
+  can import modules placed here. Implicit imports (for Mako only) are possible
+  by setting `mako_imports` in the config file (see the "Configuration file"
+  section).  There are also two special files that may be placed here:
+  `wmk_autolaod.py` in your project, and `wmk_theme_autoload.py` in the theme's
+  `py/` directory.  If one or both of these is present, wmk imports a dict named
+  `autoload` from them. This means that you can assign `PREPROCESS` and
+  `POSTPROCESS` page actions by name (i.e. keys in the `autoload` dict) rather
+  than as function references, which in turn makes it possible to specify them
+  in the frontmatter directly rather than having to do it via a shortcode. (For
+  more on `PRE-` and `POSTPROCESS`, see the "Site, page and nav variables"
+  section).
 
 - `assets`: Assets for an asset pipeline. The only default handling of assets
   involves compiling SCSS/Sass files in the subdirectory `scss`. They will be

@@ -54,8 +54,9 @@ For information about the supported syntax of the search expression, see the
 - Note that only the raw content document is indexed, not the HTML after the
   markdown (or other input content) has been processed. The only exception to
   this is that the binary input formats (DOCX, ODT, EPUB) are converted to
-  markdown before being indexed. The output of Mako templates (including
-  shortcodes called from the content documents) is not indexed either.
+  markdown before being indexed. The output of templates (including even text
+  resulting from shortcodes called from the content documents) is not indexed
+  either.
 
 - Because Lunr creates a single index file for the whole site, it may not be a
   practical  option for large sites with lots of content – a realistic

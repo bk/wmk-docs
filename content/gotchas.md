@@ -11,7 +11,7 @@ When creating a website with wmk, you might want to keep the following things in
 mind lest they surprise you:
 
 * The order of operations is as follows: (1) Copy files from `static/`; (2) run
-  asset pipeline; (3) render Mako templates from `templates`; (4) render
+  asset pipeline; (3) render standalone templates from `templates`; (4) render
   markdown content from `content`. As a consequence, later steps **may
   overwrite** files placed by earlier steps. This is intentional but definitely
   something to keep in mind.

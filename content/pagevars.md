@@ -140,25 +140,25 @@ extension must be active.
 ### System variables
 
 The following frontmatter variables affect the operation of `wmk` itself, rather
-than being exclusively handled by Mako templates.
+than being exclusively used by templates.
 
 #### Templates
 
 **Note** that a variable called something like `page.foo` below is referenced as
-such in Mako templates but specified in YAML frontmatter simply as `foo:
-somevalue`.
+such in templates but specified in YAML frontmatter simply as `foo: somevalue`.
 
-- `page.template` specifies the Mako template which will render the content.
+- `page.template` specifies the template which will render the content.
 
 - `page.layout` is used by several other static site generators. For
   compatibility with them, this variable is supported as a fallback synonym with
   `template`.  It has no effect unless `template` has not been specified
   explicitly anywhere in the cascade of frontmatter data sources.
 
-For both `template` and `layout`, the `.mhtml` extension of the template may be
-omitted. If the `template` value appears to have no extension, `.mhtml` is
-assumed; but if the intended template file has a different extension, then it
-of course cannot be omitted.
+For both `template` and `layout`, the `.mhtml` (or `.html` in the case of
+Jinja2) extension of the template may be omitted. If the `template` value
+appears to have no extension, `.mhtml` or `.html` (depending on the template
+engine) is assumed; but if the intended template file has a different extension,
+then it must of course be specified.
 
 Likewise, a leading `base/` directory may be omitted when specifying `template`
 or `layout`. For instance, a `layout` value of `post` would find the template
@@ -167,7 +167,8 @@ somewhere in the template search path.
 
 If neither `template` nor `layout` has been specified and no `default_template`
 setting is found in `wmk_config.yaml`, the default template name for markdown
-files is `md_base.mhtml`.
+files is `md_base.mhtml` (or `md_base.html` if Jinja2 templates have been
+selected).
 
 #### Affects rendering
 

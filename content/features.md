@@ -18,18 +18,18 @@ might almost call them standard:
 
 The following features are among the ones that set wmk apart:
 
-- The content is rendered using [Mako][mako], a template system which makes all
-  the resources of Python easily available to you.
+- By default, the content is rendered using [Mako][mako], a template system
+  which makes all the resources of Python easily available to you. However
+  [Jinja2][jinja] templates are also supported if that is what you prefer.
 - "Stand-alone" templates – i.e. templates that are not used for presenting
   markdown-based content – are also rendered if present. This can e.g. be used
   for list pages or content based on external sources (such as a database).
 - Additional data for the site may be loaded from separate YAML files ­ or even
   (with a small amount of Python/Mako code) from other data sources such as CSV
   files, SQL databases or REST/graphql APIs.
-- The shortcode system is considerably more powerful than that of most static
-  site generators. For instance, among the default shortcodes are an image
-  thumbnailer and a page list component. A shortcode is just a Mako component,
-  so if you know some Python you can easily build your own.
+- The shortcode system is quite powerful and flexible. For instance, among the
+  default shortcodes are an image thumbnailer and a page list component. A
+  shortcode is just a template, so you can easily build your own.
 - Optional support for the powerful [Pandoc][pandoc] document converter, for the
   entire site or on a page-by-page basis. This gives you access to such features
   as LaTeX math markup and academic citations, as well as to Pandoc's
@@ -47,10 +47,11 @@ nevertheless means that if your site is reliant upon React, Vue or similar, then
 other options are probably more convenient.
 
 That exception aside, wmk is suitable for building any small or medium-sized
-static website (up to a few hundred pages).
+static website (up to a couple of thousand pages, depending on the content).
 
 [libsass]: https://sass.github.io/libsass-python/
 [lunr]: https://lunrjs.com/
 [mako]: https://www.makotemplates.org/
+[jinja]: https://jinja.palletsprojects.com/
 [pandoc]: https://pandoc.org/
 

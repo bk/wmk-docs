@@ -28,15 +28,15 @@ before or after them, or can be redefined entirely:
 - `get_content`
 - `get_extra_content`
 - `get_index_yaml_data`
-- `get_mako_lookup`
 - `get_nav`
+- `get_template_lookup`
 - `get_template_vars`
 - `get_templates`
 - `handle_redirects`
+- `handle_shortcode`
 - `index_content`
 - `locale_and_translation`
 - `lunr_summary`
-- `mako_shortcode`
 - `markdown_extensions_settings`
 - `maybe_extra_meta`
 - `maybe_save_mdcontent_as_json`
