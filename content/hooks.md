@@ -34,6 +34,7 @@ before or after them, or can be redefined entirely:
 - `get_templates`
 - `handle_redirects`
 - `handle_shortcode`
+- `handle_taxonomy`
 - `index_content`
 - `locale_and_translation`
 - `lunr_summary`
