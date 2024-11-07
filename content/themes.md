@@ -7,7 +7,7 @@ weight: 90
 
 ## Available themes
 
-Currently there are six wmk themes available:
+There are several wmk themes available:
 
 - [Lanyonesque][lanyonesque], a blog-oriented theme based on the Jekyll theme
   [Lanyon][lanyon]. [Demo][ldemo].
@@ -25,6 +25,8 @@ Currently there are six wmk themes available:
 
 - [Birta], the theme used for [bornogtonlist.net](https://www.bornogtonlist.net/)
 
+- [Cider], a simple and elegant theme for product or company sites.
+
 [lanyonesque]: https://github.com/bk/lanyonesque
 [lanyon]: https://github.com/poole/lanyon
 [ldemo]: https://lanyonesque.baldr.net/
@@ -40,4 +42,5 @@ Currently there are six wmk themes available:
 [wdemo]: https://wdocs.baldr.net/
 [Birta]: https://github.com/bk/birta-theme/
 [Walto]: https://github.com/bk/walto/
+[Cider]: https://github.com/bk/cider/
 
