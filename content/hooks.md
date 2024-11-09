@@ -52,6 +52,7 @@ before or after them, or can be redefined entirely:
 - `process_markdown_content`
 - `process_templates`
 - `render_markdown`
+- `run_init_commands`
 - `run_cleanup_commands`
 - `write_redir_file`
 
