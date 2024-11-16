@@ -127,3 +127,4 @@ def get_template_vars__after(template_vars):
 
 This assumes that you set `rss_sources` in the `template_context` section of
 your `wmk_config.yaml` file.
+
