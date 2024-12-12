@@ -162,7 +162,9 @@ The following default shortcodes are provided by the `wmk` installation:
   multiple pages are found to match; and `link_attr`, which is a string to
   insert into the `<a>` tag (by default `class="linkto"`). A query string or
   anchor ID fragment for the link can be added via `link_append`, e.g.
-  `link_append='#section2'` or `link_append='?q=searchstring'`.
+  `link_append='#section2'` or `link_append='?q=searchstring'`. If the boolean
+  parameter `url_only` is True, then the output will not be a link but only
+  the URL (including `link_append`, if any).
 
 - `pagelist`: Runs a `page_match()` and lists the found pages. Required argument:
   `match_expr`. Optional arguments: `exclude_expr`, `ordering`, `limit`,

@@ -41,6 +41,8 @@ markdown (or other) content, receive the following context variables:
   object with a `FileSystemLoader` loader.
 - `site`: A dict-like object containing the variables specified under the `site`
   key in `wmk_config.yaml`.
+- `CACHE`: An ordinary dictionary object, intended for use by templates as a
+  simple shared in-memory cache.
 
 In the case of Jinja2 templates, three extra context variables are available:
 
@@ -49,7 +51,7 @@ In the case of Jinja2 templates, three extra context variables are available:
 - `get_context`: A function returning all context variables as a dict.
 - `import`: An alias for `importlib.import_module` and can thus be used to
   import a Python module into a Jinja template as the value of a variable, e.g.
-  `{% set utils = imp0rt('my_utils') %}`. The main intent is to make code inside
+  `{% set utils = import('my_utils') %}`. The main intent is to make code inside
   the project `py/` subdirectory as easily available in Jinja templates as it is
   in Mako templates.
 

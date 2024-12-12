@@ -72,6 +72,17 @@ All of these return a new `MDContentList` object (at least by default).
 - `in_section(self, sectionlist)`: A shortcut method for
   `self.has_taxonomy(['section', 'sections'], sectionlist)`.
 
+- `get_used_taxonomies(self)`: Get a list of all known taxonomies that are
+  actually used by items in this MDContentList (i.e. content files).
+  These may be of two types: (1) the standard taxonomies tags, sections,
+  categories and authors; and (2) anything defined as a `TAXONOMY` in the
+  frontmatter of a page.  Returns a list of dicts with the keys `taxon`, `name`,
+  `name_singular` and `name_plural`. If the taxonomy belongs to the latter
+  group, then `order`, `list_url`, `item_url_pattern` and `page_id` will be
+  present as well, and `name_singular`/`name_plural` may be empty. If a standard
+  taxonomy (e.g. tags) has been handled as a content page `TAXONOMY`, then the
+  latter type takes precedence (i.e. the standard one is omitted from the list).
+
 - `group_by(self, pred, normalize=None, keep_empty=False)`: Group items in an
   MDContentList using a given criterion. Parameters: `pred` is a callable
   receiving a content item and returning a string or a list of strings. For
