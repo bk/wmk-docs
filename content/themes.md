@@ -20,6 +20,9 @@ There are several wmk themes available:
 
 - [WDocs], a full-featured documentation theme. [Demo][wdemo].
 
+- [Dokumentaro], a full-featured documentation theme based upon the
+  Jekyll theme Just the Docs. [Demo][d9odemo].
+
 - [Walto], a more lightweight documentation theme. The [wmk documentation
   site](https://wmk.baldr.net/) uses Walto.
 
@@ -43,4 +46,6 @@ There are several wmk themes available:
 [Birta]: https://github.com/bk/birta-theme/
 [Walto]: https://github.com/bk/walto/
 [Cider]: https://github.com/bk/cider/
+[Dokumentaro]: https://github.com/bk/dokumentaro/
+[d9odemo]: https://dokumentaro.baldr.net/
 
