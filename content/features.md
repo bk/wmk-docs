@@ -12,7 +12,7 @@ might almost call them standard:
 
 - Markdown or HTML content with YAML metadata in the frontmatter.
 - Support for themes.
-- Sass/SCSS support (via [`libsass`][libsass]).
+- Sass/SCSS support (via either [`libsass`][libsass] or [Dart Sass][dartsass]).
 - Can generate a search index for use by [`lunr.js`][lunr].
 - Shortcodes for more expressive and extensible content.
 
@@ -50,6 +50,7 @@ That exception aside, wmk is suitable for building any small or medium-sized
 static website (up to a couple of thousand pages, depending on the content).
 
 [libsass]: https://sass.github.io/libsass-python/
+[dartsass]: https://sass-lang.com/dart-sass/
 [lunr]: https://lunrjs.com/
 [mako]: https://www.makotemplates.org/
 [jinja]: https://jinja.palletsprojects.com/
